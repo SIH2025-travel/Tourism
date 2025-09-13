@@ -109,3 +109,51 @@
   font-size: 0.9rem;
   color: #555;
 }
+
+/* Footer Section */
+.landingpage-footer {
+  background: #0f172a;
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.landingpage-footer .footer-content {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.landingpage-footer .footer-socials {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* Social Icon Hover Animation */
+.landingpage-footer .footer-socials a {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.landingpage-footer .footer-socials a:hover {
+  color: #ff9800;
+  transform: scale(1.2) translateY(-3px);
+}
+
+/* Scroll-triggered blur-to-clear animation for "What We Offer" heading */
+/* Scroll-up animation for What We Offer heading */
+.blur-heading {
+  opacity: 0;
+  transform: translateY(50px); /* starts below */
+  filter: blur(5px); /* start blurred */
+  transition: opacity 1.2s ease, transform 1.2s ease, filter 1.2s ease; /* slow animation */
+}
+
+.blur-heading.visible {
+  opacity: 1;
+  transform: translateY(0); /* moves to original position */
+  filter: blur(0); /* clear */
+}
+

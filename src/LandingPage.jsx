@@ -1,14 +1,40 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LandingPage.css";
 import heroImage from "./LandingPageBG.jpeg";
+import { FaFacebookF, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 export default function LandingPage() {
   const navigate = useNavigate();
+  const offerHeadingRef = useRef(null);
+  const [headingVisible, setHeadingVisible] = useState(false);
 
   const handleStartJourney = () => {
     navigate("/home");
   };
+
+  // Intersection Observer for scroll-up animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setHeadingVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (offerHeadingRef.current) {
+      observer.observe(offerHeadingRef.current);
+    }
+
+    return () => {
+      if (offerHeadingRef.current) observer.unobserve(offerHeadingRef.current);
+    };
+  }, []);
 
   return (
     <div className="landingpage">
@@ -36,7 +62,12 @@ export default function LandingPage() {
 
       {/* What We Offer Section */}
       <section className="landingpage-offer">
-        <h2>What We Offer</h2>
+        <h2
+          ref={offerHeadingRef}
+          className={`blur-heading ${headingVisible ? "visible" : ""}`}
+        >
+          What We Offer
+        </h2>
         <div className="landingpage-offer-grid">
           <div className="landingpage-offer-card">
             <div className="landingpage-icon">📍</div>
@@ -75,6 +106,27 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* Footer Section */}
+      <footer className="landingpage-footer">
+        <div className="footer-content">
+          <p>&copy; {new Date().getFullYear()} North Bengal Explorer. All rights reserved.</p>
+          <div className="footer-socials">
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+              <FaFacebookF />
+            </a>
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+              <FaTwitter />
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+              <FaInstagram />
+            </a>
+            <a href="mailto:contact@northbengalexplorer.com">
+              <FaEnvelope />
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
