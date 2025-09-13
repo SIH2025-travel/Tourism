@@ -1,25 +1,17 @@
-// import LoginPage from "./components/LoginPage"; // Importing your component
-
-// function App() {
-//   return (
-//     <div>
-//       <LoginPage />   {/* Using the component */}
-//     </div>
-    
-//   );
-// }
-
-// export default App;
-
-
-import SignUp from "./components/SignUp"; // Importing your component
+// App.jsx
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginPage from "./components/LoginPage";
+import SignUp from "./components/SignUp";
 
 function App() {
   return (
-    <div>
-      <SignUp />   {/* Using the component */}
-    </div>
-    
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
+    </Router>
   );
 }
 

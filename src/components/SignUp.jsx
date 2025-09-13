@@ -1,4 +1,6 @@
+// SignUp.jsx
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Import Link
 import "../Styles/SignUp.css";
 
 function SignUp() {
@@ -25,7 +27,7 @@ function SignUp() {
               className="toggle-password"
               onClick={() => setShowPassword(!showPassword)}
             >
-              👁
+              {showPassword ? "Hide" : "Show"}
             </span>
           </div>
 
@@ -35,7 +37,7 @@ function SignUp() {
         </form>
 
         <p className="signin-text">
-          Already have an account? <a href="#">Sign in</a>
+          Already have an account? <Link to="/">Sign in</Link> {/* Navigation Link */}
         </p>
 
         <button className="guest-btn">Continue as Guest</button>

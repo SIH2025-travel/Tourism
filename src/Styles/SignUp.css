@@ -13,6 +13,7 @@ body {
 .login-container {
   width: 500%;
   max-width: 500px;
+  align-items: center;
 }
 
 .back-link {
