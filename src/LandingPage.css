@@ -1,0 +1,111 @@
+/* General */
+.landingpage {
+  width: 100%;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Hero Section */
+.landingpage-hero {
+  position: relative;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.landingpage-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.landingpage-hero-content {
+  position: relative;
+  z-index: 10; /* ensures content is above overlay */
+  text-align: center;
+  padding: 20px;
+  max-width: 800px;
+}
+
+.landingpage-hero-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.landingpage-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.landingpage-description {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.landingpage-btn {
+  background: black;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.landingpage-btn:hover {
+  background: #333;
+}
+
+/* What We Offer Section */
+.landingpage-offer {
+  padding: 4rem 1rem;
+  background: white;
+  text-align: center;
+}
+
+.landingpage-offer h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
+.landingpage-offer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.landingpage-offer-card {
+  background: #fafafa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.landingpage-offer-card:hover {
+  transform: translateY(-5px);
+}
+
+.landingpage-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.landingpage-offer-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.landingpage-offer-card p {
+  font-size: 0.9rem;
+  color: #555;
+}
