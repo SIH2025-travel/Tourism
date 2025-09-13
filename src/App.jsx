@@ -1,3 +1,4 @@
+// import React from "react";
 // import LoginPage from "./components/LoginPage"; // Importing your component
 
 // function App() {
@@ -11,7 +12,7 @@
 
 // export default App;
 
-
+import React from "react";
 import SignUp from "./components/SignUp"; // Importing your component
 
 function App() {
