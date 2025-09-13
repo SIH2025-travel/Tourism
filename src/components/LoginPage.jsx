@@ -11,7 +11,7 @@ function LoginPage() {
       <div className="back-link">← Back to Home</div>
       <div className="login-box">
         <h2>Welcome Back</h2>
-        <p className="subtitle">Sign in to continue your journey</p>
+        <p className="subtitle1">Sign in to continue your journey</p>
 
         <form>
           <label>Email</label>
@@ -32,7 +32,7 @@ function LoginPage() {
           </div>
 
 
-          <div>
+          <div className="forgot-password">
           <a href="#">Forgot Password?</a>
           </div>
 

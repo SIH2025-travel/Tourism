@@ -10,7 +10,9 @@ function SignUp() {
     <div className="login-container">
       <div className="back-link">← Back to Home</div>
       <div className="login-box">
+        <div className="login-box1">
         <h2>Create Account</h2>
+        </div>
         <p className="subtitle">Sign up to start exploring North Bengal</p>
 
         <form>

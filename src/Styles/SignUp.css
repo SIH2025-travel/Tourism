@@ -19,7 +19,7 @@ body {
 
 .back-link {
   margin-bottom: 15px;
-  color: #090707;
+  color: #000000;
   font-size: 20px;
   cursor: pointer;
 }
@@ -36,12 +36,13 @@ body {
 
 }
 
-.login-box h2 {
+.login-box1 h2 {
   margin-bottom: 10px;
+  color: #e9e8e8e7;
 }
 
 .subtitle {
-  color: #1a1212;
+  color: #cfcccc;
   margin-bottom: 40px;
   font-size: 14px;
 }
@@ -68,7 +69,7 @@ input {
   font-size: 14px;
   outline: none;
   background: #f6f3f308;
-  color: #d0cacae7;
+  color: #060606e7;
   
 }
 
@@ -91,7 +92,7 @@ input {
   border: none;
   cursor: pointer;
   font-size: 16px;
-  color: #5e5b5b;
+  color: #010101;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -116,7 +117,7 @@ input {
 .signin-text {
   font-size: 14px;
   margin: 15px 0;
-  color: #f8f8f8e7;
+  color: #faf9f9e7;
 }
 
 .signin-text a {
