@@ -1,7 +1,7 @@
 // LoginPage.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link
-import "../Styles/LoginPage.css";
+import "../index.css";
 
 function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -30,6 +30,10 @@ function LoginPage() {
               {showPassword ? "Hide" : "Show"}
             </span>
           </div>
+
+          <button className="forgot-password">Forgot Password?</button>
+          
+          
 
           <button type="submit" className="signin-btn">
             Sign In

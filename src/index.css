@@ -1,7 +1,7 @@
 /* Background */
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #f9f9f9, #f0f0f0);
+  background: linear-gradient(135deg, #3232b3, #631616);
   margin: 0;
   display: flex;
   justify-content: center;
@@ -13,18 +13,20 @@ body {
 .login-container {
   width: 500%;
   max-width: 500px;
+  align-items: center;
+  
 }
 
 .back-link {
   margin-bottom: 15px;
-  color: #555;
+  color: #cbbbbb;
   font-size: 20px;
   cursor: pointer;
 }
 
 /* Box */
 .login-box {
-  background: #fff;
+  background: #fbfbfb;
   padding: 50px;
   border-radius: 30px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -87,6 +89,36 @@ input {
 }
 
 /* Buttons */
+.signup-btn {
+  width: 100%;
+  padding: 12px;
+  background: #000;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.signup-btn:hover {
+  background: #222;
+}
+
+.signin-text {
+  font-size: 14px;
+  margin: 15px 0;
+  color: #666;
+}
+
+.signin-text a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+/* Buttons */
 .signin-btn {
   width: 100%;
   padding: 12px;
@@ -118,7 +150,7 @@ input {
 .guest-btn {
   width: 100%;
   padding: 12px;
-  background: white;
+  background: rgb(250, 250, 250);
   border: 1px solid #ccc;
   border-radius: 6px;
   cursor: pointer;
@@ -127,4 +159,18 @@ input {
 
 .guest-btn:hover {
   background: #f6f2f2;
+}
+
+.forgot-password {
+  width: 50%;
+  padding: 5px;
+  background: rgb(250, 250, 250);
+  border: 1px solid #f6f6f6;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 1px;
+  color: #43535e;
+  text-align: left;
+  font-weight: bold;
 }

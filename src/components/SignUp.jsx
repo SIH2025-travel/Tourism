@@ -1,7 +1,7 @@
 // SignUp.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link
-import "../Styles/SignUp.css";
+import "../index.css";
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
@@ -14,6 +14,9 @@ function SignUp() {
         <p className="subtitle">Sign up to start exploring North Bengal</p>
 
         <form>
+          <label>Name</label>
+          <input type="name" placeholder="Enter your name" />
+
           <label>Email</label>
           <input type="email" placeholder="Enter your email" />
 
@@ -37,7 +40,7 @@ function SignUp() {
         </form>
 
         <p className="signin-text">
-          Already have an account? <Link to="/">Sign in</Link> {/* Navigation Link */}
+          Already have an account? <Link to="/">sign in</Link> {/* Navigation Link */}
         </p>
 
         <button className="guest-btn">Continue as Guest</button>
