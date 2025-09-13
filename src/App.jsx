@@ -1,7 +1,6 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
-import SignUp from "./components/signUp"; // Capitalized to match component usage
+import SignUp from "./components/SignUp"; // Capitalized to match component usage
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 // SignUp.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link
-import "../index.css";
+import "../styles/SignUp.css";
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,7 +16,6 @@ function SignUp() {
         <form>
           <label>Name</label>
           <input type="name" placeholder="Enter your name" />
-
           <label>Email</label>
           <input type="email" placeholder="Enter your email" />
 
