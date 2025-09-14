@@ -1,23 +1,22 @@
-// SignUp.jsx
+// LoginPage.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link
-import "../styles/SignUp.css";
+import "./SignIn.css";
+import bgimg from '../assets/BG.jpg';
 
-function SignUp() {
+function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
+    
     <div className="login-container">
-      <div className="back-link">← Back to Home</div>
+      <div className="bgimg"><img src={bgimg} alt="bgimg" /></div>
+      <Link to="/" className="back-link">← Back to Home</Link>
       <div className="login-box">
-        <div className="login-box1">
-        <h2>Create Account</h2>
-        </div>
-        <p className="subtitle">Sign up to start exploring North Bengal</p>
+        <h2>Welcome Back</h2>
+        <p className="subtitle1">Sign in to continue your journey</p>
 
         <form>
-          <label>Name</label>
-          <input type="name" placeholder="Enter your name" />
           <label>Email</label>
           <input type="email" placeholder="Enter your email" />
 
@@ -35,13 +34,18 @@ function SignUp() {
             </span>
           </div>
 
+
+          <div className="forgot-password">
+          <a href="#">Forgot Password?</a>
+          </div>
+
           <button type="submit" className="signin-btn">
-            Sign Up
+            Sign In
           </button>
         </form>
 
-        <p className="signin-text">
-          Already have an account? <Link to="/">sign in</Link> {/* Navigation Link */}
+        <p className="signup-text">
+          Don’t have an account? <Link to="/signup">Sign up</Link> {/* Navigation Link */}
         </p>
 
         <button className="guest-btn">Continue as Guest</button>
@@ -50,4 +54,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default LoginPage;
