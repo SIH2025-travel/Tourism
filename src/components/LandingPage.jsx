@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./LandingPage.css";
-import heroImage from "./LandingPageBG.jpeg";
+import "../styles/LandingPage.css";
+import heroImage from "../assets/LandingPageBG.jpeg";
 import { FaFacebookF, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 export default function LandingPage() {
