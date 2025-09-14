@@ -1,4 +1,5 @@
 
+
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
@@ -7,15 +8,18 @@ import SignUp from "./components/SignUp"; // Capitalized to match component usag
 import HomePage from "./components/HomePage";
 
 
+
 function App() {
   return (
     <Router>
       <Routes>
 
+
         {/* Landing Page at root */}
         <Route path="/" element={<LandingPage />} />
 
         <Route path="/login" element={<LoginPage />} />
+
 
         <Route path="/signup" element={<SignUp />} />
 
