@@ -2,13 +2,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link
 import "../styles/LoginPage.css";
+import bgimg from '../assets/BG.jpg';
+
 
 function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="login-container">
-      <div className="back-link">← Back to Home</div>
+      <div className="bgimg"><img src={bgimg} alt="bgimg" /></div>
+      <Link to="/" className="back-link">← Back to Home</Link>
       <div className="login-box">
         <h2>Welcome Back</h2>
         <p className="subtitle1">Sign in to continue your journey</p>

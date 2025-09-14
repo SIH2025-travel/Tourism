@@ -1,56 +1,90 @@
-/* Background */
-body {
-  font-family: Arial, sans-serif;
-  background: url('./src/assets/BG.jpg') no-repeat;;
+html, body {
+  height: 100%;
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
+  padding: 0;
+  overflow-x: hidden; /* prevent scroll */
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Container */
+/* Background image */
+.bgimg img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+/* Container for centering */
 .login-container {
-  width: 500%;
-  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* exact viewport height */
+  box-sizing: border-box;
+  padding: 20px;
 }
 
 .back-link {
-  margin-bottom: 15px;
-  color: #000000;
-  font-size: 20px;
+  position: absolute;   /* fix at top left */
+  top: 20px;
+  left: 20px;
+
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
   cursor: pointer;
+
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px); /* glass effect */
 }
 
-/* Box */
+.back-link:hover {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-color: #000;
+}
+
+
+/* Box styling */
 .login-box {
-  background: transparent;
-  padding: 10px;
-  border-radius: 30px;
-  box-shadow: 0 4px 12px rgba(239, 236, 236, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   text-align: center;
-  align-items: center;
-  backdrop-filter: blur(10px);
-
+  width: 100%;
+  max-width: 400px;
 }
 
-.login-box1 h2 {
+/* Title */
+.login-box h2 {
   margin-bottom: 10px;
-  color: #e9e8e8e7;
+  color: #222;
 }
 
-.subtitle {
-  color: #cfcccc;
-  margin-bottom: 40px;
+.subtitle1 {
+  color: #444;
+  margin-bottom: 30px;
   font-size: 14px;
 }
 
 /* Form */
 form {
   text-align: left;
-  color: #000000e7;
+  color: #111;
 }
 
 label {
@@ -58,70 +92,71 @@ label {
   font-size: 14px;
   margin: 10px 0 5px;
   font-weight: bold;
-  color: #030303e7;
 }
 
+/* Form fields */
 input {
-  width: 95%;
-  padding: 10px;
-  border: 1px solid #181717;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #333;
   border-radius: 8px;
   font-size: 14px;
   outline: none;
-  background: #f6f3f308;
-  color: #060606e7;
-  
+  box-sizing: border-box; /* ensures consistent width */
+  margin-bottom: 10px;
 }
 
-/* Password Wrapper */
+/* Password wrapper */
 .password-wrapper {
   position: relative;
-  display: flex;
-  align-items: center;
+  width: 100%; /* ensures same width as other fields */
 }
 
 .password-wrapper input {
   width: 100%;
-  padding-right: 40px; /* space for the icon */
+  padding-right: 60px; /* enough space for Show/Hide */
+  margin-bottom: 0;
 }
 
 .toggle-password {
   position: absolute;
   right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px;
-  color: #010101;
-  top: 50%;
-  transform: translateY(-50%);
+  font-size: 14px;
+  color: #000;
 }
 
+
 /* Buttons */
-.signup-btn {
+.signin-btn {
   width: 100%;
   padding: 12px;
-  background: #0b0a0a;
+  background: #000;
   color: white;
   font-size: 16px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 15px;
+  transition: 0.3s;
 }
 
-.signup-btn:hover {
-  background: #191515;
+.signin-btn:hover {
+  background: #333;
 }
 
-.signin-text {
+.signup-text {
   font-size: 14px;
   margin: 15px 0;
-  color: #faf9f9e7;
+  color: #222;
 }
 
-.signin-text a {
-  color: #efeaea;
+.signup-text a {
+  color: #000;
   text-decoration: none;
   font-weight: bold;
 }
@@ -129,13 +164,27 @@ input {
 .guest-btn {
   width: 100%;
   padding: 12px;
-  background: rgb(250, 250, 250);
+  background: white;
   border: 1px solid #ccc;
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
+  margin-top: 10px;
+  transition: 0.3s;
 }
 
 .guest-btn:hover {
-  background: #f6f2f2;
+  background: #f6f6f6;
+}
+
+/* Forgot password */
+.forgot-password {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.forgot-password a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
 }
