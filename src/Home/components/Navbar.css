@@ -1,0 +1,39 @@
+.navbar {
+  width: 100%;                  /* Full width */
+  height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #fbfbfb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Spread items left-center-right */
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 50px; /* adjust the value as needed */
+}
+
+.nav-center input {
+  width: 400px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #d1d5db;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.profile-text {
+  font-weight: 500;
+}

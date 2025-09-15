@@ -5,7 +5,8 @@ import sittongImg from "../assets/Sittong.jpg";
 import lepchajagatImg from "../assets/Lepchajagat.jpg";
 import tinchuleyImg from "../assets/Tinchuley.jpg";
 import lamahattaImg from "../assets/Lamahatta.jpg";
-
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
 
 const places = [
   {
@@ -34,14 +35,25 @@ const places = [
   },
 ];
 
+
 export default function HomePage() {
   const [activeCard, setActiveCard] = useState(null);
 
   return (
+
     <div
       className="homepage"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
+       <Navbar />
+      <div className="home-body">
+        <Sidebar />
+        <main className="home-content">
+          <h1>Welcome to Home Page</h1>
+          <p>This is your main content area.</p>
+        </main>
+      </div>
+
       {/* Left Content */}
       <div className="homepage-left">
         <h2>Offbeat Places Of</h2>
@@ -65,6 +77,7 @@ export default function HomePage() {
             <h3>{place.title}</h3>
           </div>
         ))}
+
       </div>
     </div>
   );
