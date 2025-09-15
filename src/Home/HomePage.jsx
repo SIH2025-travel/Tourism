@@ -1,68 +1,71 @@
-import React from "react";
-import { MapPin } from "lucide-react";
+import React, { useState } from "react";
 import "./HomePage.css";
+import bgImage from "../assets/HomePageBG.jpg"; // fixed extension
+import sittongImg from "../assets/Sittong.jpg";
+import lepchajagatImg from "../assets/Lepchajagat.jpg";
+import tinchuleyImg from "../assets/Tinchuley.jpg";
+import lamahattaImg from "../assets/Lamahatta.jpg";
 
-const locations = [
-  { name: "Darjeeling", x: "70%", y: "10%" },
-  { name: "Kalimpong", x: "80%", y: "15%" },
-  { name: "Kurseong", x: "65%", y: "25%" },
-  { name: "Siliguri", x: "50%", y: "40%" },
-  { name: "Dooars", x: "40%", y: "55%" },
-  { name: "Jalpaiguri", x: "50%", y: "60%" },
-  { name: "Alipurduar", x: "30%", y: "65%" },
-  { name: "Cooch Behar", x: "35%", y: "80%" },
+
+const places = [
+  {
+    id: 1,
+    title: "Sittong",
+    img: sittongImg,
+    link: "#nagano",
+  },
+  {
+    id: 2,
+    title: "Lepchajagat",
+    img: lepchajagatImg,
+    link: "#marrakech",
+  },
+  {
+    id: 3,
+    title: "Tinchuley",
+    img: tinchuleyImg,
+    link: "#yosemite",
+  },
+  {
+    id: 4,
+    title: "Lamahatta",
+    img: lamahattaImg,
+    link: "#loslances",
+  },
 ];
 
-const HomePage = () => {
+export default function HomePage() {
+  const [activeCard, setActiveCard] = useState(null);
+
   return (
-    <div className="homepage">
-      {/* Header */}
-      <header className="homepage-header">
-        <h1>North Bengal Explorer</h1>
-        <p>Click on any location to discover hotels, tours, restaurants, and cost estimates</p>
-      </header>
+    <div
+      className="homepage"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
+      {/* Left Content */}
+      <div className="homepage-left">
+        <h2>Offbeat Places Of</h2>
+        <h1>North Bengal</h1>
+        <p>
+          Explore breathtaking destinations around North Bengal with curated travel
+          guides and adventures.
+        </p>
+        <button className="explore-btn">Book Your Journey</button>
+      </div>
 
-      {/* Main Content */}
-      <main className="homepage-main">
-        {/* Map Section */}
-        <div className="homepage-map-card">
-          <div className="homepage-map">
-            {locations.map((loc, i) => (
-              <div
-                key={i}
-                className="homepage-location"
-                style={{ top: loc.y, left: loc.x }}
-              >
-                <div className="homepage-location-dot"></div>
-                <span className="homepage-location-label">{loc.name}</span>
-              </div>
-            ))}
+      {/* Right Cards */}
+      <div className="homepage-cards">
+        {places.map((place) => (
+          <div
+            key={place.id}
+            className={`card ${activeCard === place.id ? "active" : ""}`}
+            onClick={() => setActiveCard(place.id)}
+          >
+            <img src={place.img} alt={place.title} />
+            <h3>{place.title}</h3>
           </div>
-        </div>
-
-        {/* Info Section */}
-        <div className="homepage-info">
-          {/* Select a Location Card */}
-          <div className="homepage-card homepage-card-center">
-            <MapPin size={32} className="homepage-icon" />
-            <h2>Select a Location</h2>
-            <p>Click on any location on the map to explore hotels, tours, restaurants, and get cost estimates.</p>
-          </div>
-
-          {/* Quick Stats Card */}
-          <div className="homepage-card">
-            <h2>Quick Stats</h2>
-            <ul className="homepage-stats">
-              <li><span>Destinations</span> <span>8</span></li>
-              <li><span>Hill Stations</span> <span>4</span></li>
-              <li><span>Wildlife Areas</span> <span>3</span></li>
-              <li><span>Heritage Sites</span> <span>2</span></li>
-            </ul>
-          </div>
-        </div>
-      </main>
+        ))}
+      </div>
     </div>
   );
-};
-
-export default HomePage;
+}

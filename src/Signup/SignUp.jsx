@@ -48,7 +48,7 @@ function SignUp() {
 
         <button className="guest-btn">
           <Link to="/home">
-            Continue as Guest Link
+            Continue as Guest
           </Link>
         </button>
       </div>

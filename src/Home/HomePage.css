@@ -1,152 +1,100 @@
-/* General */
+/* General Layout */
 .homepage {
-  min-height: 100vh;
-  background-color: #f8fafc;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  font-family: Arial, sans-serif;
-}
-
-/* Header */
-.homepage-header {
+  height: 100vh;
   width: 100%;
-  background-color: #0f172a;
-  color: white;
-  padding: 1.5rem 0;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.homepage-header h1 {
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.homepage-header p {
-  margin-top: 0.25rem;
-  color: #cbd5e1;
-  font-size: 0.9rem;
-}
-
-/* Main Content */
-.homepage-main {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 1200px;
-  padding: 1.5rem;
-}
-
-@media(min-width: 768px) {
-  .homepage-main {
-    grid-template-columns: 2fr 1fr;
-  }
-}
-
-/* Map Card */
-.homepage-map-card {
-  background: white;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  position: relative;
-}
-
-.homepage-map {
-  width: 100%;
-  height: 450px;
-  border-radius: 1rem;
-  background: linear-gradient(to bottom, #bfdbfe, #eff6ff);
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
+  color: #fff;
   position: relative;
   overflow: hidden;
 }
 
-/* Locations */
-.homepage-location {
-  position: absolute;
+/* Left side text */
+.homepage-left {
+  flex: 1;
+  max-width: 40%;
+  z-index: 2;
+}
+
+.homepage-left h2 {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.homepage-left h1 {
+  font-size: 60px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.homepage-left p {
+  font-size: 18px;
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+.explore-btn {
+  padding: 12px 24px;
+  background: #ff6b35;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  color: #fff;
   cursor: pointer;
+  transition: background 0.3s ease-in-out;
 }
 
-.homepage-location-dot {
-  width: 0.75rem;
-  height: 0.75rem;
-  background-color: #3b82f6;
-  border-radius: 50%;
-  border: 2px solid white;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-  transition: transform 0.2s;
+.explore-btn:hover {
+  background: #e85a2a;
 }
 
-.homepage-location:hover .homepage-location-dot {
-  transform: scale(1.25);
-}
-
-.homepage-location-label {
-  position: absolute;
-  left: 1.25rem;
-  top: 0;
-  background: white;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  font-size: 0.75rem;
-  color: #374151;
-  display: none;
-}
-
-.homepage-location:hover .homepage-location-label {
-  display: block;
-}
-
-/* Info Section */
-.homepage-info {
+/* Right side cards */
+.homepage-cards {
+  flex: 1;
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-@media(min-width: 768px) {
-  .homepage-info {
-    flex-direction: column;
-  }
-}
-
-/* Cards */
-.homepage-card {
-  background: white;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.homepage-card-center {
-  display: flex;
-  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
   align-items: center;
 }
 
-.homepage-icon {
-  color: #4b5563;
-  margin-bottom: 0.5rem;
+.card {
+  width: 180px;
+  height: 280px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  position: relative;
 }
 
-/* Quick Stats */
-.homepage-stats {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.card img {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
 }
 
-.homepage-stats li {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-  color: #4b5563;
+.card h3 {
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
 }
 
-.homepage-stats li span:last-child {
-  font-weight: 500;
+/* Active (clicked) card enlarges */
+.card.active {
+  transform: scale(1.2);
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.card:hover {
+  transform: scale(1.1);
 }
