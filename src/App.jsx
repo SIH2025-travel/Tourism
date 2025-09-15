@@ -1,28 +1,28 @@
-
-
-
-
-
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./Landing/LandingPage";
+import LoginPage from "./Signin/LoginPage";
+import SignUp from "./Signup/SignUp";
 import HomePage from "./Home/HomePage";
 
+const styles = {
+  notFound: {
+    textAlign: "center",
+    marginTop: "100px",
+    fontFamily: "Arial, sans-serif",
+    color: "#333",
+  },
+};
+
 function App() {
-<<<<<<< HEAD
   return (
     <Router>
       <Routes>
-        
-        
         <Route path="/" element={<LandingPage />} />
-
         <Route path="/login" element={<LoginPage />} />
-
-
         <Route path="/signup" element={<SignUp />} />
-
         {/* Home Page */}
         <Route path="/home" element={<HomePage />} />
-
         {/* 404 Fallback */}
         <Route
           path="*"
@@ -33,13 +33,9 @@ function App() {
             </div>
           }
         />
-
       </Routes>
     </Router>
   );
-=======
-  return <HomePage />;
->>>>>>> feature/Ramita
 }
 
 export default App;
