@@ -13,7 +13,7 @@ function SignUp() {
       <Link to="/" className="back-link">← Back to Home</Link>
       <div className="login-box">
         <div className="login-box1">
-        <h2>Create Account</h2>
+          <h2>Create Account</h2>
         </div>
         <p className="subtitle">Sign up to start exploring North Bengal</p>
 
@@ -43,10 +43,14 @@ function SignUp() {
         </form>
 
         <p className="signin-text">
-          Already have an account? <Link to="/login">sign in</Link> {/* Navigation Link */}
+          Already have an account? <Link to="/login">Sign in</Link> {/* Navigation Link */}
         </p>
 
-        <button className="guest-btn">Continue as Guest</button>
+        <button className="guest-btn">
+          <Link to="/home">
+            Continue as Guest Link
+          </Link>
+        </button>
       </div>
     </div>
   );
