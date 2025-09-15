@@ -1,7 +1,7 @@
 // LoginPage.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link
-import "../styles/LoginPage.css";
+import "./LoginPage.css";
 import bgimg from '../assets/BG.jpg';
 
 

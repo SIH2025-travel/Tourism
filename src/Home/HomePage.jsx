@@ -1,6 +1,6 @@
 import React from "react";
 import { MapPin } from "lucide-react";
-import "../styles/HomePage.css";
+import "./HomePage.css";
 
 const locations = [
   { name: "Darjeeling", x: "70%", y: "10%" },

@@ -1,7 +1,7 @@
 // SignUp.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link
-import "../styles/SignUp.css";
+import "./SignUp.css";
 import bgimg from '../assets/BG.jpg';
 
 function SignUp() {
@@ -37,7 +37,7 @@ function SignUp() {
             </span>
           </div>
 
-          <button type="submit" className="signin-btn">
+          <button type="submit" className="signup-btn">
             Sign Up
           </button>
         </form>

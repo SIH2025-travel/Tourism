@@ -132,8 +132,8 @@ input {
 
 
 /* Buttons */
-.signin-btn {
-  width: 100%;
+.signup-btn {
+ width: 100%;
   padding: 12px;
   background: #000;
   color: white;
@@ -141,21 +141,21 @@ input {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  margin-top: 15px;
+  margin-top: 20px;
   transition: 0.3s;
 }
 
-.signin-btn:hover {
+.signup-btn:hover {
   background: #333;
 }
 
-.signup-text {
+.signin-text {
   font-size: 14px;
-  margin: 15px 0;
+  margin: 10px 0;
   color: #222;
 }
 
-.signup-text a {
+.signin-text a {
   color: #000;
   text-decoration: none;
   font-weight: bold;

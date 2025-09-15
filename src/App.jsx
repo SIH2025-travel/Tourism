@@ -1,11 +1,9 @@
-
-
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LandingPage from "./components/LandingPage";
-import LoginPage from "./components/LoginPage";
-import SignUp from "./components/SignUp"; // Capitalized to match component usage
-import HomePage from "./components/HomePage";
+import LandingPage from "./Landing/LandingPage";
+import LoginPage from "./Signin/LoginPage";
+import SignUp from "./Signup/SignUp";
+import HomePage from "./Home/HomePage";
 
 
 
@@ -13,8 +11,7 @@ function App() {
   return (
     <Router>
       <Routes>
-
-
+        
         {/* Landing Page at root */}
         <Route path="/" element={<LandingPage />} />
 
