@@ -1,17 +1,38 @@
-<<<<<<< HEAD
 /* General Layout */
 .homepage {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column; /* Navbar at top, rest below */
   height: 100vh;
   width: 100%;
   background-size: cover;
   background-position: center;
-  padding: 50px;
   color: #fff;
   position: relative;
   overflow: hidden;
+}
+
+/* Body = Sidebar + Main content */
+.home-body {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+}
+
+/* Sidebar should stay on the left */
+.home-body > .sidebar {
+  width: 250px; /* Adjust width as per your sidebar */
+ background: transparent;
+}
+
+/* Main Content */
+.home-content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  position: relative;
 }
 
 /* Left side text */
@@ -98,22 +119,4 @@
 
 .card:hover {
   transform: scale(1.1);
-=======
-.homepage {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
-/* body contains sidebar + content */
-.home-body {
-  display: flex;
-  flex: 1;
-}
-
-.home-content {
-  flex: 1;
-  padding: 20px;
-  background: #f9fafb;
->>>>>>> feature/Ramita
 }
