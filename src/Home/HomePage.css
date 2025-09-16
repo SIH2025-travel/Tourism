@@ -1,17 +1,122 @@
+/* General Layout */
 .homepage {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Navbar at top, rest below */
   height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
 }
 
-/* body contains sidebar + content */
+/* Body = Sidebar + Main content */
 .home-body {
   display: flex;
   flex: 1;
+  height: 100%;
+  width: 100%;
 }
 
+/* Sidebar should stay on the left */
+.home-body > .sidebar {
+  width: 250px; /* Adjust width as per your sidebar */
+ background: transparent;
+}
+
+/* Main Content */
 .home-content {
   flex: 1;
-  padding: 20px;
-  background: #f9fafb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  position: relative;
+}
+
+/* Left side text */
+.homepage-left {
+  flex: 1;
+  max-width: 40%;
+  z-index: 2;
+}
+
+.homepage-left h2 {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.homepage-left h1 {
+  font-size: 60px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.homepage-left p {
+  font-size: 18px;
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+.explore-btn {
+  padding: 12px 24px;
+  background: #ff6b35;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.explore-btn:hover {
+  background: #e85a2a;
+}
+
+/* Right side cards */
+.homepage-cards {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 180px;
+  height: 280px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+
+.card h3 {
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+}
+
+/* Active (clicked) card enlarges */
+.card.active {
+  transform: scale(1.2);
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.card:hover {
+  transform: scale(1.1);
 }
