@@ -5,6 +5,7 @@ import sittongImg from "../assets/Sittong.jpg";
 import lepchajagatImg from "../assets/Lepchajagat.jpg";
 import tinchuleyImg from "../assets/Tinchuley.jpg";
 import lamahattaImg from "../assets/Lamahatta.jpg";
+import Chatbot from "../Chatbot/Chatbot";
 
 
 
@@ -19,15 +20,9 @@ export default function HomePage() {
   const [activeCard, setActiveCard] = useState(null);
 
   return (
-    <div
-      className="homepage"
-      style={{ backgroundImage: `url(${bgImage})` }}
-    >
-    
-
-
-
+  <div className="homepage" style={{ backgroundImage: `url(${bgImage})` }}>
   {/* Main homepage content */}
+  <div className="chatbot"><Chatbot /></div>
   <main className="home-content">
     {/* Left Section */}
     <div className="homepage-left">
