@@ -5,6 +5,11 @@ import LandingPage from "./Landing/LandingPage";  // ✅ Correct folder
 import HomePage from "./Home/HomePage";           // ✅ Inside Home folder
 import Signin from "./Signin/LoginPage";             // ✅ Inside Signin folder
 import Signup from "./Signup/SignUp";             // ✅ Inside Signup folder
+import PlaceDetail from "./Home/PlaceDetail"; // create this file inside Home folder
+import SightseeingPage from "./Home/SightseeingPage"; 
+import FoodsPage from "./Home/FoodsPage"; 
+import HotelsPage from "./Home/HotelsPage"; 
+
 
 
 function App() {
@@ -16,6 +21,13 @@ function App() {
 
         {/* Home Page */}
         <Route path="/home" element={<HomePage />} />
+
+         <Route path="/home/place/:id" element={<PlaceDetail />} />
+
+                {/* ✅ Sub-pages */}
+        <Route path="/home/place/:id/sightseeing" element={<SightseeingPage />} />
+        <Route path="/home/place/:id/foods" element={<FoodsPage />} />
+        <Route path="/home/place/:id/hotels" element={<HotelsPage />} />
 
         {/* Login (Signin) Page */}
         <Route path="/login" element={<Signin />} />
