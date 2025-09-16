@@ -50,11 +50,12 @@
   padding: 6px 12px;
   font-size: 14px;
   font-weight: 500;
-  border: 1px solid #d1d5db;
+  border: 1px solid #a1acbc;
   border-radius: 6px;
   background: white;
   cursor: pointer;
   transition: background 0.2s ease-in-out;
+  color: #24334d;
 }
 
 .edit-btn:hover {

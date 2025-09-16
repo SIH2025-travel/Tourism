@@ -24,7 +24,7 @@ const Sidebar = () => {
       </button>
 
       {/* Sidebar */}
-      <aside className={`sidebar ${isOpen ? "open" : "closed"}`}>
+      <aside className={`sidebar ${isOpen ? "closed" : "open"}`}>
         {/* Profile Section */}
         <div className="profile-section">
           <FaUserCircle className="profile-pic" />
