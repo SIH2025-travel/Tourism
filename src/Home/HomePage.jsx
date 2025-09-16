@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./HomePage.css";
+import Sidebar from "./components/Sidebar";
 import bgImage from "../assets/HomePageBG.jpg"; // fixed extension
 import sittongImg from "../assets/Sittong.jpg";
 import lepchajagatImg from "../assets/Lepchajagat.jpg";
@@ -24,7 +25,8 @@ export default function HomePage() {
       style={{ backgroundImage: `url(${bgImage})` }}
     >
     
-
+    
+      <Sidebar />
 
 
   {/* Main homepage content */}
