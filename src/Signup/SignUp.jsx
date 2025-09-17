@@ -79,6 +79,11 @@ function SignUp() {
           Already have an account? <Link to="/login">Sign in</Link> {/* Navigation Link */}
         </p>
 
+        <button className="guest-btn">
+          <Link to="/home">
+            Continue as Guest
+          </Link>
+        </button>
         <button className="guest-btn" onClick={() => navigate('/home')}>
           Continue as Guest
         </button>
