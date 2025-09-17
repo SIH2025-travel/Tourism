@@ -10,6 +10,15 @@ import sittongImg from "../assets/Sittong.jpg";
 import lepchajagatImg from "../assets/Lepchajagat.jpg";
 import tinchuleyImg from "../assets/Tinchuley.jpg";
 import lamahattaImg from "../assets/Lamahatta.jpg";
+import Chatbot from "../Chatbot/Chatbot";
+
+
+
+const places = [
+  { id: 1, title: "Sittong", img: sittongImg, link: "#nagano" },
+  { id: 2, title: "Lepchajagat", img: lepchajagatImg, link: "#marrakech" },
+  { id: 3, title: "Tinchuley", img: tinchuleyImg, link: "#yosemite" },
+  { id: 4, title: "Lamahatta", img: lamahattaImg, link: "#loslances" },
 import takdahImg from "../assets/Takdah.jpg";
 
 // ✅ Export places so it can be used in PlaceDetail.jsx
@@ -119,6 +128,20 @@ export default function HomePage() {
               {places[displayIndex].buttonText}
             </button>
           </div>
+  <div className="homepage" style={{ backgroundImage: `url(${bgImage})` }}>
+  {/* Main homepage content */}
+  <div className="chatbot"><Chatbot /></div>
+  <main className="home-content">
+    {/* Left Section */}
+    <div className="homepage-left">
+      <h2>Offbeat Places Of</h2>
+      <h1>North Bengal</h1>
+      <p>
+        Explore breathtaking destinations around North Bengal with curated
+        travel guides and adventures.
+      </p>
+      <button className="explore-btn">Book Your Journey</button>
+    </div>
 
           <div className="homepage-cards">
             {reorderedPlaces.map((place, idx) => {
