@@ -1,0 +1,132 @@
+/* Full page background */
+.contribution-page {
+  display: flex;
+  flex-direction: column; /* ✅ allows heading + form to stack */
+  justify-content: flex-start; /* ✅ heading on top */
+  align-items: center;
+  min-height: 100vh;
+  background: url("../assets/HomePageBG.jpg") no-repeat center center/cover;
+  padding: 40px 20px;
+}
+
+.back-home-container {
+  width: 100%;
+  max-width: 500px; /* match form width */
+  margin: 0 auto 20px; /* space below navbar and above heading */
+}
+
+.back-home-btn {
+  position: fixed;       /* always visible */
+  top: 80px;             /* distance below navbar */
+  left: 20px;            /* distance from left edge */
+  padding: 10px 16px;
+  background-color: #ff6b35;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  z-index: 1000;         /* above other content */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-home-btn:hover {
+  background-color: #e85a2a;
+  transform: translateY(-2px);
+}
+
+
+/* Page Heading (outside the form) */
+.page-heading {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+ margin: 100px 0 30px; /* ⬅️ Push heading below navbar */
+  color: #1f2937; /* neutral dark gray */
+  font-family: "Poppins", sans-serif; /* clean, professional font */
+}
+
+/* Form container */
+.contribution-form {
+  background: rgba(255, 255, 255, 0.92); /* ✅ brighter & readable */
+  padding: 40px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  color: #111; /* ✅ Dark text */
+}
+
+/* Title inside form */
+.contribution-form h1 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #111827; /* Dark gray */
+}
+
+/* Labels */
+.contribution-form label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+/* Inputs & textarea */
+.contribution-form input,
+.contribution-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  background: #fff;
+  color: #111;
+  transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.contribution-form input:hover,
+.contribution-form textarea:hover {
+  border-color: #ff9c65; /* lighter accent on hover */
+}
+
+.contribution-form input:focus,
+.contribution-form textarea:focus {
+  border-color: #ff6b35;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 107, 53, 0.3);
+}
+
+/* File upload */
+.contribution-form input[type="file"] {
+  padding: 6px;
+}
+
+.image-preview img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  margin-top: 15px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: #ff6b35;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+  background: #e85a2a;
+}
