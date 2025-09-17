@@ -4,6 +4,7 @@ import "./HomePage.css";
 
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+import Chatbot from "../Chatbot/Chatbot";
 
 import bgImage from "../assets/HomePageBG.jpg";
 import sittongImg from "../assets/Sittong.jpg";
@@ -11,9 +12,7 @@ import lepchajagatImg from "../assets/Lepchajagat.jpg";
 import tinchuleyImg from "../assets/Tinchuley.jpg";
 import lamahattaImg from "../assets/Lamahatta.jpg";
 import takdahImg from "../assets/Takdah.jpg";
-import Chatbot from "../Chatbot/Chatbot";
 
-// Export places so it can be used in PlaceDetail.jsx
 export const places = [
   { id: 1, title: "Sittong", img: sittongImg, subtitle: "The Orange Valley", description: "Famous for its orange orchards and serene village life amidst nature.", buttonText: "Book Your Trip to Sittong", readMore: "Sittong is known as the orange valley of North Bengal. It is a cluster of villages where you can experience rural charm, visit orange orchards, and stay in homestays while enjoying nature." },
   { id: 2, title: "Lepchajagat", img: lepchajagatImg, subtitle: "Whispering Pines", description: "A quiet retreat with pine forests and stunning Kanchenjunga views.", buttonText: "Book Your Trip to Lepchajagat", readMore: "Lepchajagat is a serene hamlet offering breathtaking views of Kanchenjunga, surrounded by thick forests of rhododendron, oak, and pine. It's perfect for bird watching and peaceful retreats." },
@@ -56,20 +55,19 @@ export default function HomePage() {
   };
 
   const scrollBooking = (scrollOffset) => {
-  const container = document.getElementById("booking-cards");
-  if (container) {
-    container.scrollBy({
-      left: scrollOffset,
-      behavior: "smooth",
-    });
-  }
-};
-
+    const container = document.getElementById("booking-cards");
+    if (container) {
+      container.scrollBy({ left: scrollOffset, behavior: "smooth" });
+    }
+  };
 
   return (
     <>
       {/* Hero Section */}
-      <div className="homepage" style={{ backgroundImage: `url(${places[activeIndex]?.img || bgImage})` }}>
+      <div
+        className="homepage"
+        style={{ backgroundImage: `url(${places[activeIndex]?.img || bgImage})` }}
+      >
         <Navbar />
         <div className="home-body">
           <Sidebar />
@@ -107,38 +105,35 @@ export default function HomePage() {
         </div>
       </div>
 
-     {/* -------------------------
-     Booking Section with Carousel
-------------------------- */}
-<section className="booking-section">
-  <h2>Explore Tour Packages</h2>
-  <div className="booking-carousel">
-    <button className="carousel-btn left" onClick={() => scrollBooking(-300)}>‹</button>
-    <div className="booking-cards" id="booking-cards">
-      <div className="booking-card">
-        <img src={sittongImg} alt="Sittong Tour" />
-        <h3>Sittong Adventure</h3>
-        <p>3 Days / 2 Nights - Explore orange orchards and nature trails.</p>
-        <button className="book-now-btn">Book Now</button>
-      </div>
-      <div className="booking-card">
-        <img src={lepchajagatImg} alt="Lepchajagat Tour" />
-        <h3>Lepchajagat Escape</h3>
-        <p>2 Days / 1 Night - Serene pine forests and Kanchenjunga views.</p>
-        <button className="book-now-btn">Book Now</button>
-      </div>
-      <div className="booking-card">
-        <img src={tinchuleyImg} alt="Tinchuley Tour" />
-        <h3>Tinchuley Retreat</h3>
-        <p>4 Days / 3 Nights - Tea gardens, riverside walks, and sunrise points.</p>
-        <button className="book-now-btn">Book Now</button>
-      </div>
-      {/* Add more cards as needed */}
-    </div>
-    <button className="carousel-btn right" onClick={() => scrollBooking(300)}>›</button>
-  </div>
-</section>
-
+      {/* Booking Section with Carousel */}
+      <section className="booking-section">
+        <h2>Explore Tour Packages</h2>
+        <div className="booking-carousel">
+          <button className="carousel-btn left" onClick={() => scrollBooking(-300)}>‹</button>
+          <div className="booking-cards" id="booking-cards">
+            <div className="booking-card">
+              <img src={sittongImg} alt="Sittong Tour" />
+              <h3>Sittong Adventure</h3>
+              <p>3 Days / 2 Nights - Explore orange orchards and nature trails.</p>
+              <button className="book-now-btn">Book Now</button>
+            </div>
+            <div className="booking-card">
+              <img src={lepchajagatImg} alt="Lepchajagat Tour" />
+              <h3>Lepchajagat Escape</h3>
+              <p>2 Days / 1 Night - Serene pine forests and Kanchenjunga views.</p>
+              <button className="book-now-btn">Book Now</button>
+            </div>
+            <div className="booking-card">
+              <img src={tinchuleyImg} alt="Tinchuley Tour" />
+              <h3>Tinchuley Retreat</h3>
+              <p>4 Days / 3 Nights - Tea gardens, riverside walks, and sunrise points.</p>
+              <button className="book-now-btn">Book Now</button>
+            </div>
+            {/* Add more cards as needed */}
+          </div>
+          <button className="carousel-btn right" onClick={() => scrollBooking(300)}>›</button>
+        </div>
+      </section>
     </>
   );
 }

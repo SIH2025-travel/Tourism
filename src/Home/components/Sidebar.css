@@ -51,10 +51,11 @@
   padding: 6px 12px;
   font-size: 14px;
   font-weight: 500;
-  border: 1px solid #d1d5db;
+  border: 1px solid #a1acbc;
   border-radius: 6px;
   background: white;
   cursor: pointer;
+  color: #24334d;
   transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 

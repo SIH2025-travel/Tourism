@@ -27,7 +27,7 @@ const Sidebar = () => {
       </button>
 
       {/* Sidebar */}
-      <aside className={`sidebar ${isOpen ? "open" : "closed"}`}>
+      <aside className={`sidebar ${isOpen ? "closed" : "open"}`}>
         {/* Profile Section */}
         <div className="profile-section">
           <FaUserCircle className="profile-pic" />
@@ -59,7 +59,7 @@ const Sidebar = () => {
           <a href="#" className="menu-item">
             <FaQuestionCircle className="icon" /> Help & Support
           </a>
-          <a href="#" className="menu-item logout">
+          <a href="/" className="menu-item logout">
             <FaSignOutAlt className="icon" /> Logout
           </a>
         </nav>
