@@ -1,18 +1,15 @@
 /* Sidebar container */
 .sidebar {
   position: fixed;
-  top: 0;
+  top: 60px;   /* 👈 Push below navbar */
   left: 0;
   width: 250px;
-  background: #fff;
-  border-right: 1px solid #e5e7eb;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
+  height: calc(100% - 60px); /* 👈 Fill the rest of the screen below navbar */
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
-  z-index: 1000;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05); /* subtle shadow */
+  z-index: 999; /* stays above content but below navbar */
+  overflow-y: auto;
 }
 
 /* When sidebar is closed */
@@ -118,42 +115,89 @@ hr {
 }
 
 /* Toggle Button */
+/* Toggle Button */
 .toggle-btn {
   position: fixed;
-  top: 15px;
+  top: 65px;       /* 👈 below navbar (adjust if your navbar height differs) */
   left: 15px;
-  font-size: 20px;
-  background: #111827;
-  color: #fff;
+  font-size: 22px;
+  background: none;
   border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
   cursor: pointer;
-  z-index: 1100;
-  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+  z-index: 1100;   /* ensure above sidebar */
+  color: #333;
 }
 
-.toggle-btn:hover {
-  background: #374151;
-  transform: scale(1.05);
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 60px;       /* 👈 sidebar starts below navbar */
+  left: 0;
+  width: 250px;
+  height: calc(100% - 60px);
+  background: #fff;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 200px;
-    padding: 15px;
-  }
+.sidebar.open {
+  transform: translateX(0);
+}
 
-  .menu-item {
-    font-size: 14px;
-    padding: 8px 10px;
-  }
+.sidebar.closed {
+  transform: translateX(-100%);
+}
 
-  .toggle-btn {
-    top: 12px;
-    left: 12px;
-    font-size: 18px;
-    padding: 6px 10px;
-  }
+/* Profile & Menu styling (your existing design remains) */
+.profile-section {
+  text-align: center;
+  padding: 20px;
+}
+
+.profile-pic {
+  font-size: 60px;
+  color: #555;
+}
+
+.user-name {
+  margin: 10px 0;
+}
+
+.edit-btn {
+  background: #eee;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.menu-item:hover {
+  background: #f5f5f5;
+}
+
+.menu-item .icon {
+  margin-right: 10px;
+}
+
+.logout {
+  color: #d9534f;
 }

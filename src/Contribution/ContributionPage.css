@@ -1,31 +1,27 @@
 /* Full page background */
 .contribution-page {
   display: flex;
-  flex-direction: column; /* ✅ allows heading + form to stack */
-  justify-content: flex-start; /* ✅ heading on top */
+  flex-direction: column; 
+  justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
   background: url("../assets/HomePageBG.jpg") no-repeat center center/cover;
   padding: 40px 20px;
+  font-family: "Poppins", sans-serif;
 }
 
-.back-home-container {
-  width: 100%;
-  max-width: 500px; /* match form width */
-  margin: 0 auto 20px; /* space below navbar and above heading */
-}
-
+/* Back to home button */
 .back-home-btn {
-  position: fixed;       /* always visible */
-  top: 80px;             /* distance below navbar */
-  left: 20px;            /* distance from left edge */
+  position: fixed;
+  top: 80px;
+  left: 20px;
   padding: 10px 16px;
   background-color: #ff6b35;
   color: #fff;
   font-weight: 600;
   border-radius: 8px;
   text-decoration: none;
-  z-index: 1000;         /* above other content */
+  z-index: 1000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: background 0.3s ease, transform 0.2s ease;
 }
@@ -35,45 +31,87 @@
   transform: translateY(-2px);
 }
 
-
-/* Page Heading (outside the form) */
+/* Page Heading */
 .page-heading {
   text-align: center;
   font-size: 36px;
   font-weight: 700;
- margin: 100px 0 30px; /* ⬅️ Push heading below navbar */
-  color: #1f2937; /* neutral dark gray */
-  font-family: "Poppins", sans-serif; /* clean, professional font */
+  margin: 100px 0 30px;
+  color: #1f2937;
 }
 
-/* Form container */
+/* Form container (translucent box) */
 .contribution-form {
-  background: rgba(255, 255, 255, 0.92); /* ✅ brighter & readable */
+  background: rgba(255, 255, 255, 0.92);
   padding: 40px;
   border-radius: 15px;
   width: 100%;
-  max-width: 500px;
+  max-width: 900px; /* wider to allow side-by-side layout */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-  color: #111; /* ✅ Dark text */
+  color: #111;
+  display: flex;
+  gap: 30px; /* space between image & fields */
+  flex-wrap: wrap; /* responsive */
 }
 
-/* Title inside form */
+/* Left side: Image Upload */
+.image-upload-section {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.image-upload-label {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  border: 2px dashed #d1d5db;
+  border-radius: 10px;
+  transition: border-color 0.3s;
+}
+
+.image-upload-label:hover {
+  border-color: #ff6b35;
+}
+
+.image-preview img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 15px;
+  border: 1px solid #d1d5db;
+}
+
+/* Right side: Inputs */
+.input-fields {
+  flex: 2;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
 .contribution-form h1 {
   text-align: center;
   font-size: 28px;
   margin-bottom: 25px;
-  color: #111827; /* Dark gray */
-}
-
-/* Labels */
-.contribution-form label {
-  font-weight: 600;
-  display: block;
-  margin-bottom: 8px;
   color: #111827;
 }
 
-/* Inputs & textarea */
+.contribution-form label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #111827;
+  display: flex;
+  flex-direction: column;
+}
+
 .contribution-form input,
 .contribution-form textarea {
   width: 100%;
@@ -89,7 +127,7 @@
 
 .contribution-form input:hover,
 .contribution-form textarea:hover {
-  border-color: #ff9c65; /* lighter accent on hover */
+  border-color: #ff9c65;
 }
 
 .contribution-form input:focus,
@@ -97,20 +135,6 @@
   border-color: #ff6b35;
   outline: none;
   box-shadow: 0 0 5px rgba(255, 107, 53, 0.3);
-}
-
-/* File upload */
-.contribution-form input[type="file"] {
-  padding: 6px;
-}
-
-.image-preview img {
-  width: 100%;
-  max-height: 250px;
-  object-fit: cover;
-  margin-top: 15px;
-  border-radius: 8px;
-  border: 1px solid #d1d5db;
 }
 
 /* Submit button */
@@ -125,8 +149,23 @@
   color: #fff;
   cursor: pointer;
   transition: background 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .submit-btn:hover {
   background: #e85a2a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contribution-form {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .image-upload-section, .input-fields {
+    width: 100%;
+  }
 }
