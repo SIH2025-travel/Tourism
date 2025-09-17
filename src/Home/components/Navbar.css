@@ -1,39 +1,84 @@
+/* Navbar Container */
 .navbar {
-  width: 100%;                  /* Full width */
-  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background: #fff;
-  border-bottom: 1px solid #fbfbfb;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Spread items left-center-right */
-  padding: 0 20px;
-  box-sizing: border-box;
+  padding: 10px 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1200;
+  height: 60px; /* fixed height so sidebar toggle won’t overlap */
 }
 
-.logo {
-  font-size: 20px;
+/* Left section (logo + sidebar toggle if needed) */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 120px; /* ensures toggle icon never hides */
+}
+
+.navbar-left .logo {
+  font-size: 18px;
   font-weight: bold;
-  margin-left: 50px; /* adjust the value as needed */
+  color: #333;
+  margin: 0;
+  white-space: nowrap;
 }
 
-.nav-center input {
-  width: 400px;
-  padding: 8px 12px;
+/* Middle search bar */
+.navbar-search {
+  position: relative;
+  flex: 1;
+  max-width: 350px; /* reduced width so toggle isn’t hidden */
+  margin: 0 20px;
+}
+
+.navbar-search .search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 14px;
+}
+
+.navbar-search input {
+  width: 100%;
+  padding: 8px 12px 8px 34px;
+  border: 1px solid #ccc;
   border-radius: 20px;
-  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
 }
 
-.nav-right {
+.navbar-search input:focus {
+  border-color: #0077ff;
+}
+
+/* Right section (username + profile pic) */
+.navbar-right {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
+  min-width: 120px; /* reserve space so it doesn’t squash search */
+  justify-content: flex-end;
 }
 
-.icon {
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.profile-text {
+.username {
+  font-size: 14px;
   font-weight: 500;
+  color: #333;
+}
+
+.profile-pic {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
 }

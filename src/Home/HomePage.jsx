@@ -30,6 +30,32 @@ export default function HomePage() {
   const [fade, setFade] = useState(false);
   const [animatingCard, setAnimatingCard] = useState(null);
   const [wishlist, setWishlist] = useState([]); // ✅ Wishlist state
+  const [selectedDurations, setSelectedDurations] = useState([]); // multiple filter
+  const [tours, setTours] = useState([
+    { id: 1, img: sittongImg, title: "Sittong Adventure", desc: "3 Days / 2 Nights - Explore orange orchards and nature trails.", duration: "3d2n" },
+    { id: 2, img: lepchajagatImg, title: "Lepchajagat Escape", desc: "2 Days / 1 Night - Serene pine forests and Kanchenjunga views.", duration: "2d1n" },
+    { id: 3, img: tinchuleyImg, title: "Tinchuley Retreat", desc: "4 Days / 3 Nights - Tea gardens, riverside walks, and sunrise points.", duration: "4d3n" },
+    { id: 4, img: takdahImg, title: "Takdah Delight", desc: "3 Days / 2 Nights - Colonial charm with orchid nurseries and tea estates.", duration: "3d2n" }
+  ]);
+
+const handleDurationChange = (duration) => {
+  setSelectedDurations((prev) =>
+    prev.includes(duration)
+      ? prev.filter((d) => d !== duration) // remove if already selected
+      : [...prev, duration] // add new
+  );
+};
+const moveCarousel = (direction) => {
+  setTours((prev) => {
+    if (direction === "right") {
+      const [first, ...rest] = prev;
+      return [...rest, first]; // move first to last
+    } else {
+      const last = prev[prev.length - 1];
+      return [last, ...prev.slice(0, -1)]; // move last to front
+    }
+  });
+};
 
   const navigate = useNavigate();
   const cardRefs = useRef([]);
@@ -83,20 +109,20 @@ export default function HomePage() {
         <div className="home-body">
           <Sidebar />
           <main className="home-content">
-           <div className="homepage-left">
-  <h2>{places[displayIndex].subtitle}</h2>
-  <h1>{places[displayIndex].title}</h1>
-  <p>{places[displayIndex].description}</p>
+            <div className="homepage-left">
+              <h2>{places[displayIndex].subtitle}</h2>
+              <h1>{places[displayIndex].title}</h1>
+              <p>{places[displayIndex].description}</p>
 
-  <div className="button-group">
-    <button className="read-more-btn" onClick={() => handleReadMore(displayIndex)}>
-      Read More
-    </button>
-    <button className="explore-btn">
-      {places[displayIndex].buttonText}
-    </button>
-  </div>
-</div>
+              <div className="button-group">
+                <button className="read-more-btn" onClick={() => handleReadMore(displayIndex)}>
+                  Read More
+                </button>
+                <button className="explore-btn">
+                  {places[displayIndex].buttonText}
+                </button>
+              </div>
+            </div>
 
             <div className="homepage-cards">
               {reorderedPlaces.map((place, idx) => {
@@ -124,45 +150,75 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Booking Section with Carousel */}
-      <section className="booking-section">
-        <h2>Explore Tour Packages</h2>
-        <div className="booking-carousel">
-          <button className="carousel-btn left" onClick={() => scrollBooking(-300)}>‹</button>
-          <div className="booking-cards" id="booking-cards">
-            {[
-              { id: 1, img: sittongImg, title: "Sittong Adventure", desc: "3 Days / 2 Nights - Explore orange orchards and nature trails." },
-              { id: 2, img: lepchajagatImg, title: "Lepchajagat Escape", desc: "2 Days / 1 Night - Serene pine forests and Kanchenjunga views." },
-              { id: 3, img: tinchuleyImg, title: "Tinchuley Retreat", desc: "4 Days / 3 Nights - Tea gardens, riverside walks, and sunrise points." },
-            ].map((tour) => (
-              <div key={tour.id} className="booking-card">
-                <div className="image-container">
-                  <img src={tour.img} alt={tour.title} />
-                  <button
-                    className="wishlist-btn"
-                    onClick={() => toggleWishlist(tour.id)}
-                  >
-                    {wishlist.includes(tour.id) ? (
-                      <FaHeart color="#ff6b35" size={24} />
-                    ) : (
-                      <FaRegHeart color="#fff" size={24} />
-                    )}
-                  </button>
-                </div>
-                <h3>{tour.title}</h3>
-                <p>{tour.desc}</p>
-                <button
-                  className="book-now-btn"
-                  onClick={() => alert(`Booking for ${tour.title} clicked`)}
-                >
-                  Book Now
-                </button>
-              </div>
-            ))}
+     <section className="booking-section">
+  <h2>Explore Tour Packages</h2>
+
+  {/* Filter with Checkboxes */}
+  <div className="booking-filter">
+    <label>
+      <input
+        type="checkbox"
+        checked={selectedDurations.includes("2d1n")}
+        onChange={() => handleDurationChange("2d1n")}
+      />
+      2D / 1N
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        checked={selectedDurations.includes("3d2n")}
+        onChange={() => handleDurationChange("3d2n")}
+      />
+      3D / 2N
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        checked={selectedDurations.includes("4d3n")}
+        onChange={() => handleDurationChange("4d3n")}
+      />
+      4D / 3N
+    </label>
+  </div>
+
+  {/* Carousel */}
+  <div className="booking-carousel">
+    <button className="carousel-btn left" onClick={() => moveCarousel("left")}>‹</button>
+    <div className="booking-cards" id="booking-cards">
+      {tours
+        .filter((tour) =>
+          selectedDurations.length === 0 || selectedDurations.includes(tour.duration)
+        )
+        .map((tour) => (
+          <div key={tour.id} className="booking-card">
+            <div className="image-container">
+              <img src={tour.img} alt={tour.title} />
+              <button
+                className="wishlist-btn"
+                onClick={() => toggleWishlist(tour.id)}
+              >
+                {wishlist.includes(tour.id) ? (
+                  <FaHeart color="#ff6b35" size={24} />
+                ) : (
+                  <FaRegHeart color="#fff" size={24} />
+                )}
+              </button>
+            </div>
+            <h3>{tour.title}</h3>
+            <p>{tour.desc}</p>
+            <button
+              className="book-now-btn"
+              onClick={() => alert(`Booking for ${tour.title} clicked`)}
+            >
+              Book Now
+            </button>
           </div>
-          <button className="carousel-btn right" onClick={() => scrollBooking(300)}>›</button>
-        </div>
-      </section>
+        ))}
+    </div>
+    <button className="carousel-btn right" onClick={() => moveCarousel("right")}>›</button>
+  </div>
+</section>
+
     </>
   );
 }

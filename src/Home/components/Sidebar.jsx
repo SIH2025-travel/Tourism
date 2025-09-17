@@ -9,25 +9,27 @@ import {
   FaSignOutAlt,
   FaTachometerAlt,
   FaBars,
-  FaTimes
+  FaTimes,
+  FaCamera
 } from "react-icons/fa";
 import "./Sidebar.css";
 import { Link } from "react-router-dom";
-import { FaCamera } from "react-icons/fa";
-
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false); // default closed
 
   return (
     <>
-      {/* Toggle Button */}
-      <button className="toggle-btn" onClick={() => setIsOpen(!isOpen)}>
+      {/* Toggle Button (☰ / ✖) */}
+      <button
+        className="toggle-btn"
+        onClick={() => setIsOpen(!isOpen)}
+      >
         {isOpen ? <FaTimes /> : <FaBars />}
       </button>
 
       {/* Sidebar */}
-      <aside className={`sidebar ${isOpen ? "closed" : "open"}`}>
+      <aside className={`sidebar ${isOpen ? "open" : "closed"}`}>
         {/* Profile Section */}
         <div className="profile-section">
           <FaUserCircle className="profile-pic" />
@@ -48,10 +50,10 @@ const Sidebar = () => {
           <a href="#" className="menu-item">
             <FaHeart className="icon" /> Wishlist
           </a>
-          
-<Link to="/contribution" className="menu-item">
-  <FaCamera className="icon" /> Contribute
-</Link>
+
+          <Link to="/contribution" className="menu-item">
+            <FaCamera className="icon" /> Contribute
+          </Link>
 
           <hr />
           <a href="#" className="menu-item">
