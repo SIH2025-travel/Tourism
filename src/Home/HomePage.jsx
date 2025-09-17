@@ -38,6 +38,17 @@ export default function HomePage() {
     { id: 4, img: takdahImg, title: "Takdah Delight", desc: "3 Days / 2 Nights - Colonial charm with orchid nurseries and tea estates.", duration: "3d2n" }
   ]);
 
+// ✅ Filter state
+const [filter, setFilter] = useState("all");
+
+const filteredTours =
+  filter === "all" ? tours : tours.filter((t) => {
+    if (filter === "2") return t.duration === "2d1n";
+    if (filter === "3") return t.duration === "3d2n";
+    if (filter === "4") return t.duration === "4d3n";
+    return true;
+  });
+
 const handleDurationChange = (duration) => {
   setSelectedDurations((prev) =>
     prev.includes(duration)
@@ -151,74 +162,60 @@ const moveCarousel = (direction) => {
 
       </div>
 
-     <section className="booking-section">
+    {/* Booking Section with Carousel */}
+<section className="booking-section">
   <h2>Explore Tour Packages</h2>
 
-  {/* Filter with Checkboxes */}
-  <div className="booking-filter">
-    <label>
-      <input
-        type="checkbox"
-        checked={selectedDurations.includes("2d1n")}
-        onChange={() => handleDurationChange("2d1n")}
-      />
-      2D / 1N
-    </label>
-    <label>
-      <input
-        type="checkbox"
-        checked={selectedDurations.includes("3d2n")}
-        onChange={() => handleDurationChange("3d2n")}
-      />
-      3D / 2N
-    </label>
-    <label>
-      <input
-        type="checkbox"
-        checked={selectedDurations.includes("4d3n")}
-        onChange={() => handleDurationChange("4d3n")}
-      />
-      4D / 3N
-    </label>
+  {/* ✅ Filter Bar */}
+  <div className="filter-bar">
+    <label htmlFor="duration">Filter by Duration:</label>
+    <select
+      id="duration"
+      className="filter-select"
+      value={filter}
+      onChange={(e) => setFilter(e.target.value)}
+    >
+      <option value="all">All</option>
+      <option value="2">2 Days / 1 Night</option>
+      <option value="3">3 Days / 2 Nights</option>
+      <option value="4">4 Days / 3 Nights</option>
+    </select>
   </div>
 
-  {/* Carousel */}
   <div className="booking-carousel">
-    <button className="carousel-btn left" onClick={() => moveCarousel("left")}>‹</button>
+    <button className="carousel-btn left" onClick={() => scrollBooking(-300)}>‹</button>
     <div className="booking-cards" id="booking-cards">
-      {tours
-        .filter((tour) =>
-          selectedDurations.length === 0 || selectedDurations.includes(tour.duration)
-        )
-        .map((tour) => (
-          <div key={tour.id} className="booking-card">
-            <div className="image-container">
-              <img src={tour.img} alt={tour.title} />
-              <button
-                className="wishlist-btn"
-                onClick={() => toggleWishlist(tour.id)}
-              >
-                {wishlist.includes(tour.id) ? (
-                  <FaHeart color="#ff6b35" size={24} />
-                ) : (
-                  <FaRegHeart color="#fff" size={24} />
-                )}
-              </button>
-            </div>
-            <h3>{tour.title}</h3>
-            <p>{tour.desc}</p>
-            <button
-              className="book-now-btn"
-              onClick={() => alert(`Booking for ${tour.title} clicked`)}
-            >
-              Book Now
-            </button>
+      {filteredTours.map((tour) => (
+        <div key={tour.id} className="booking-card">
+          <div className="image-container">
+            <img src={tour.img} alt={tour.title} />
+           <button
+  className="wishlist-btn"
+  onClick={() => toggleWishlist(tour.id)}
+>
+  {wishlist.includes(tour.id) ? (
+    <FaHeart color="red" />
+  ) : (
+    <FaRegHeart color="black" />
+  )}
+</button>
           </div>
-        ))}
+          <h3>{tour.title}</h3>
+          <p>{tour.desc}</p>
+          <button
+            className="book-now-btn"
+            onClick={() => alert(`Booking for ${tour.title} clicked`)}
+          >
+            Book Now
+          </button>
+        </div>
+      ))}
     </div>
-    <button className="carousel-btn right" onClick={() => moveCarousel("right")}>›</button>
+    <button className="carousel-btn right" onClick={() => scrollBooking(300)}>›</button>
   </div>
 </section>
+
+
 
     </>
   );

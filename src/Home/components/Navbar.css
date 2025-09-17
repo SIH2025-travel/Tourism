@@ -1,89 +1,88 @@
-/* Navbar Container */
 .navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   background: #fff;
-  padding: 10px 16px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  height: 60px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1200;
-  height: 60px; /* fixed height so sidebar toggle won’t overlap */
+  width: 100%;
+  z-index: 1000;
 }
 
-.logo {
-  font-size: 20px;
-  font-weight: bold;
-  margin-left: 50px; /* adjust the value as needed */
+/* Logo */
+.logo-img {
+  height: 65px;
+  width: auto;
+  object-fit: contain;
 }
-/* Left section (logo + sidebar toggle if needed) */
-.navbar-left {
+
+/* Center the search bar */
+.navbar-search {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Search box container */
+.search-container {
   display: flex;
   align-items: center;
-  gap: 12px;
-  min-width: 120px; /* ensures toggle icon never hides */
-}
-
-.navbar-left .logo {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  margin: 0;
-  white-space: nowrap;
-}
-
-/* Middle search bar */
-.navbar-search {
-  position: relative;
-  flex: 1;
-  max-width: 350px; /* reduced width so toggle isn’t hidden */
-  margin: 0 20px;
-}
-
-.navbar-search .search-icon {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
-  font-size: 14px;
-}
-
-.navbar-search input {
-  width: 100%;
-  padding: 8px 12px 8px 34px;
-  border: 1px solid #ccc;
+  background: #f9f9f9;
+  padding: 6px 12px;
   border-radius: 20px;
-  font-size: 14px;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 300px;         /* keeps it inside navbar */
+  height: 40px;             /* matches navbar height */
+  box-sizing: border-box;
+}
+/* Search icon inside */
+.search-container .search-icon {
+  font-size: 16px;
+  color: #555;
+  margin-right: 8px; /* space between icon & text */
+}
+
+/* Input styling */
+.search-container input {
+  border: none;
   outline: none;
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+  background: transparent;
+  height: 100%;          /* 🔹 Make it fill container height */
+  line-height: normal;   /* 🔹 Reset line height */
+  padding: 0;            /* 🔹 Remove default padding */
+  display: flex;
+  align-items: center;   /* 🔹 Ensures vertical centering */
 }
 
-.navbar-search input:focus {
-  border-color: #0077ff;
-}
 
-/* Right section (username + profile pic) */
+/* Right side */
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-width: 120px; /* reserve space so it doesn’t squash search */
-  justify-content: flex-end;
+  gap: 15px;
 }
 
 .username {
-  font-size: 14px;
   font-weight: 500;
   color: #333;
 }
 
-.profile-pic {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  object-fit: cover;
+.user-icon {
+  font-size: 28px;
+  color: #555;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 22px;
+  color: #555;
   cursor: pointer;
 }
