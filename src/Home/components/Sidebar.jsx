@@ -11,10 +11,23 @@ import {
   FaBars,
   FaTimes
 } from "react-icons/fa";
+import { useAuth } from "../../Auth/AuthProvider";
+import { useNavigate } from "react-router-dom";
 import "./Sidebar.css";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const { signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      navigate("/"); // go back to landing page
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
+  };
 
   return (
     <>
@@ -52,9 +65,9 @@ const Sidebar = () => {
           <a href="#" className="menu-item">
             <FaQuestionCircle className="icon" /> Help & Support
           </a>
-          <a href="/" className="menu-item logout">
+          <button onClick={handleLogout} className="menu-item logout">
             <FaSignOutAlt className="icon" /> Logout
-          </a>
+          </button>
         </nav>
       </aside>
     </>
@@ -62,3 +75,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+  

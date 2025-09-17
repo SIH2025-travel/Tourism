@@ -10,6 +10,6 @@ export default function ProtectedRoute({ children }){
   // if supabase is not configured, allow guest access
   if (!isSupabaseConfigured) return children;
   // if supabase configured and no user, redirect to login
-  if (!user) return <Navigate to="/login" replace />;
+  if (!user) return <Navigate to="/" replace />;
   return children;
 }

@@ -1,0 +1,174 @@
+.place-cards {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.detail-card {
+  flex: 1;
+  min-width: 220px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+.place-detail {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;       /* ✅ ensures full coverage */
+  background-position: center;  /* ✅ keeps it centered */
+  background-repeat: no-repeat; /* ✅ prevents repetition */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+.place-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.45); /* subtle overlay for readability */
+}
+
+.place-subtitle {
+  font-size: 22px;
+  margin-bottom: 5px;
+  font-weight: 400;
+}
+
+.place-title {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+.place-cards {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.detail-card {
+  flex: 1;
+  min-width: 220px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+.detail-card h3 {
+  font-size: 20px;
+  margin: 15px 0 10px;
+}
+
+.detail-card p {
+  font-size: 15px;
+  color: #eee;
+}
+
+.detail-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Main content */
+.place-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 50px;
+  text-align: center;
+}
+
+/* Titles */
+.place-title {
+  font-size: 60px;
+  font-weight: 700;
+  margin: 10px 0 40px;
+}
+
+.place-subtitle {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+/* Cards Section */
+.place-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px 0 50px;
+  flex-wrap: wrap;
+}
+
+.place-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  width: 280px;
+  height: 220px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.place-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.place-card h3 {
+  font-size: 20px;
+  margin: 15px 0 10px;
+}
+
+.place-card p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #eee;
+}
+
+.card-icon {
+  color: #ff6b35;
+}
+
+/* Button */
+.explore-btn {
+  padding: 12px 24px;
+  background: #ff6b35;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.explore-btn:hover {
+  background: #e85a2a;
+}
+
+.not-found {
+  text-align: center;
+  padding: 50px;
+  font-size: 20px;
+  color: #fff;
+}
