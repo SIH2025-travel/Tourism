@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import Navbar from "./components/Navbar";
@@ -13,7 +13,6 @@ import lamahattaImg from "../assets/Lamahatta.jpg";
 import takdahImg from "../assets/Takdah.jpg";
 import "./HomePage.css";
 
-// ✅ Correct places array
 export const places = [
   {
     id: 1,
@@ -69,15 +68,12 @@ export const places = [
 
 export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [displayIndex, setDisplayIndex] = useState(0);
   const [animatingCard, setAnimatingCard] = useState(null);
   const [wishlist, setWishlist] = useState([]);
   const [filter, setFilter] = useState("all");
 
   const navigate = useNavigate();
-  const cardRefs = useRef([]);
 
-  // ✅ Structured tours data
   const tours = [
     {
       id: 1,
@@ -109,7 +105,6 @@ export default function HomePage() {
     },
   ];
 
-  // ✅ Filter logic simplified
   const filteredTours =
     filter === "all"
       ? tours
@@ -120,17 +115,17 @@ export default function HomePage() {
         return true;
       });
 
-  // ✅ Place reordering
+  // Always show the active place first, then the rest
   const reorderedPlaces = [
-    ...places.slice(activeIndex + 1),
-    ...places.slice(0, activeIndex),
+    places[activeIndex],
+    ...places.filter((_, idx) => idx !== activeIndex),
   ];
 
   const handleCardClick = (newIndex) => {
+    if (newIndex === activeIndex) return;
     setAnimatingCard(newIndex);
     setTimeout(() => {
       setActiveIndex(newIndex);
-      setDisplayIndex(newIndex);
       setAnimatingCard(null);
     }, 800);
   };
@@ -165,19 +160,19 @@ export default function HomePage() {
           <Sidebar />
           <main className="home-content">
             <div className="homepage-left">
-              <h2>{places[displayIndex].subtitle}</h2>
-              <h1>{places[displayIndex].title}</h1>
-              <p>{places[displayIndex].description}</p>
+              <h2>{places[activeIndex].subtitle}</h2>
+              <h1>{places[activeIndex].title}</h1>
+              <p>{places[activeIndex].description}</p>
 
               <div className="button-group">
                 <button
                   className="read-more-btn"
-                  onClick={() => handleReadMore(displayIndex)}
+                  onClick={() => handleReadMore(activeIndex)}
                 >
                   Read More
                 </button>
                 <button className="explore-btn">
-                  {places[displayIndex].buttonText}
+                  {places[activeIndex].buttonText}
                 </button>
               </div>
             </div>
@@ -186,11 +181,9 @@ export default function HomePage() {
               {reorderedPlaces.map((place, idx) => (
                 <div
                   key={place.id}
-                  ref={(el) => (cardRefs.current[idx] = el)}
                   className={`card ${animatingCard === idx ? "active" : ""}`}
                   style={{
-                    transform: `translateX(${idx * 220}px) scale(${idx === 0 ? 1 : 0.9
-                      })`,
+                    transform: `translateX(${idx * 220}px) scale(${idx === 0 ? 1 : 0.9})`,
                     opacity: idx > 2 ? 0 : 1,
                     zIndex: 10 - idx,
                   }}
