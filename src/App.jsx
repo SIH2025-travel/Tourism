@@ -36,6 +36,9 @@ function App() {
             }
           />
 
+          <Route path="/guest-home" element={<HomePage />} />
+
+
           {/* Place details and sub-pages */}
           <Route
             path="/home/place/:id"
@@ -103,6 +106,19 @@ function App() {
 
           {/* Signup Page */}
           <Route path="/signup" element={<Signup />} />
+
+          <Route path="/home/place/:id" element={<PlaceDetail />} />
+
+           {/* Contribution Page */}
+           <Route path="/contribution" element={<ProtectedRoute><ContributionPage /></ProtectedRoute>} />
+
+          <Route path="/home/place/:id/sightseeing" element={<SightseeingPage />} />
+          <Route path="/home/place/:id/foods" element={<FoodsPage />} />
+          <Route path="/home/place/:id/hotels" element={<HotelsPage />} />
+
+          {/* Planner routes */}
+          <Route path="/planner" element={<ProtectedRoute><Planner /></ProtectedRoute>} />
+          <Route path="/planner/results" element={<ProtectedRoute><PlannerResults /></ProtectedRoute>} />
 
           {/* 404 Fallback */}
           <Route
