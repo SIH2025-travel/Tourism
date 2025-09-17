@@ -1,40 +1,122 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import LandingPage from "./Landing/LandingPage";  // ✅ Correct folder
-import HomePage from "./Home/HomePage";           // ✅ Inside Home folder
-import Signin from "./Signin/LoginPage";             // ✅ Inside Signin folder
-import Signup from "./Signup/SignUp";             // ✅ Inside Signup folder
+// Pages
+import LandingPage from "./Landing/LandingPage";  
+import HomePage from "./Home/HomePage";          
+import Signin from "./Signin/LoginPage";             
+import Signup from "./Signup/SignUp";             
+import PlaceDetail from "./Home/PlaceDetail"; 
+import SightseeingPage from "./Home/SightseeingPage"; 
+import FoodsPage from "./Home/FoodsPage"; 
+import HotelsPage from "./Home/HotelsPage"; 
+import ContributionPage from "./Contribution/ContributionPage";
+import Planner from "./Planner/Planner";
+import PlannerResults from "./Planner/Results";
 
+// Auth
+import { AuthProvider } from './Auth/AuthProvider';
+import ProtectedRoute from './Auth/ProtectedRoute';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* Landing Page at root */}
-        <Route path="/" element={<LandingPage />} />
+    <AuthProvider>
+      <Router>
+        <Routes>
+          {/* Landing Page at root */}
+          <Route path="/" element={<LandingPage />} />
 
-        {/* Home Page */}
-        <Route path="/home" element={<HomePage />} />
+          {/* Home Page */}
+          <Route
+            path="/home"
+            element={
+              <ProtectedRoute>
+                <HomePage />
+              </ProtectedRoute>
+            }
+          />
 
-        {/* Login (Signin) Page */}
-        <Route path="/login" element={<Signin />} />
+          {/* Place details and sub-pages */}
+          <Route
+            path="/home/place/:id"
+            element={
+              <ProtectedRoute>
+                <PlaceDetail />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/home/place/:id/sightseeing"
+            element={
+              <ProtectedRoute>
+                <SightseeingPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/home/place/:id/foods"
+            element={
+              <ProtectedRoute>
+                <FoodsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/home/place/:id/hotels"
+            element={
+              <ProtectedRoute>
+                <HotelsPage />
+              </ProtectedRoute>
+            }
+          />
 
-        {/* Signup Page */}
-        <Route path="/signup" element={<Signup />} />
+          {/* Contribute page */}
+          <Route
+            path="/contribute"
+            element={
+              <ProtectedRoute>
+                <ContributionPage />
+              </ProtectedRoute>
+            }
+          />
 
-        {/* 404 Fallback */}
-        <Route
-          path="*"
-          element={
-            <div style={styles.notFound}>
-              <h1>404 - Page Not Found</h1>
-              <p>The page you are looking for does not exist.</p>
-            </div>
-          }
-        />
-      </Routes>
-    </Router>
+          {/* Planner routes */}
+          <Route
+            path="/planner"
+            element={
+              <ProtectedRoute>
+                <Planner />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/planner/results"
+            element={
+              <ProtectedRoute>
+                <PlannerResults />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Login (Signin) Page */}
+          <Route path="/login" element={<Signin />} />
+
+          {/* Signup Page */}
+          <Route path="/signup" element={<Signup />} />
+
+          {/* 404 Fallback */}
+          <Route
+            path="*"
+            element={
+              <div style={styles.notFound}>
+                <h1>404 - Page Not Found</h1>
+                <p>The page you are looking for does not exist.</p>
+              </div>
+            }
+          />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 

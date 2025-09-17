@@ -12,6 +12,7 @@
   padding: 20px;
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05); /* subtle shadow */
 }
 
 /* When sidebar is closed */
@@ -50,47 +51,67 @@
   padding: 6px 12px;
   font-size: 14px;
   font-weight: 500;
-  border: 1px solid #d1d5db;
+  border: 1px solid #a1acbc;
   border-radius: 6px;
   background: white;
   cursor: pointer;
-  transition: background 0.2s ease-in-out;
+  color: #24334d;
+  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .edit-btn:hover {
   background: #f3f4f6;
+  transform: translateY(-1px);
 }
-
-
 
 /* Menu */
 .menu {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  flex-grow: 1;
 }
 
 .menu-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 12px;
+  padding: 10px 14px;
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
   color: #374151;
   border-radius: 6px;
-  transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
 }
 
 .menu-item:hover {
   background: #f3f4f6;
+  color: #111827;
+  transform: translateX(4px);
+}
+
+.menu-item .icon {
+  font-size: 18px;
+  color: #6b7280;
+  transition: color 0.2s ease-in-out;
+}
+
+.menu-item:hover .icon {
+  color: #111827;
 }
 
 .menu-item.logout {
   color: #dc2626;
 }
 
+.menu-item.logout:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Divider */
 hr {
   margin: 15px 0;
   border: 0.5px solid #e5e7eb;
@@ -109,9 +130,30 @@ hr {
   border-radius: 6px;
   cursor: pointer;
   z-index: 1100;
-  transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .toggle-btn:hover {
   background: #374151;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+    padding: 15px;
+  }
+
+  .menu-item {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .toggle-btn {
+    top: 12px;
+    left: 12px;
+    font-size: 18px;
+    padding: 6px 10px;
+  }
 }

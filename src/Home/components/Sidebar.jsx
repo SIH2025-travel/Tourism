@@ -13,8 +13,27 @@ import {
 } from "react-icons/fa";
 import "./Sidebar.css";
 
+import { useAuth } from "../../Auth/AuthProvider";
+import { useNavigate } from "react-router-dom";
+
+import { Link } from "react-router-dom";
+import { FaCamera } from "react-icons/fa";
+
+
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const { signOut, user } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    const ok = await signOut();
+    if (ok) {
+      setIsOpen(false);
+      navigate('/');
+    } else {
+      alert('Logout failed. Try again.');
+    }
+  };
 
   return (
     <>
@@ -24,11 +43,11 @@ const Sidebar = () => {
       </button>
 
       {/* Sidebar */}
-      <aside className={`sidebar ${isOpen ? "open" : "closed"}`}>
+      <aside className={`sidebar ${isOpen ? "closed" : "open"}`}>
         {/* Profile Section */}
         <div className="profile-section">
           <FaUserCircle className="profile-pic" />
-          <h3 className="user-name">User Name</h3>
+          <h3 className="user-name">{user?.user_metadata?.full_name || user?.email || 'User Name'}</h3>
           <button className="edit-btn">
             <FaPen className="icon" /> Edit Profile
           </button>
@@ -45,6 +64,10 @@ const Sidebar = () => {
           <a href="#" className="menu-item">
             <FaHeart className="icon" /> Wishlist
           </a>
+
+              <Link to="/contribute" className="menu-item">
+          <FaCamera className="icon" /> Contribute
+        </Link>
           <hr />
           <a href="#" className="menu-item">
             <FaCog className="icon" /> Settings
@@ -52,9 +75,9 @@ const Sidebar = () => {
           <a href="#" className="menu-item">
             <FaQuestionCircle className="icon" /> Help & Support
           </a>
-          <a href="#" className="menu-item logout">
+          <button type="button" className="menu-item logout" onClick={handleLogout}>
             <FaSignOutAlt className="icon" /> Logout
-          </a>
+          </button>
         </nav>
       </aside>
     </>
