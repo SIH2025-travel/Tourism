@@ -48,10 +48,11 @@ const Sidebar = () => {
           <a href="#" className="menu-item">
             <FaHeart className="icon" /> Wishlist
           </a>
+          
+<Link to="/contribution" className="menu-item">
+  <FaCamera className="icon" /> Contribute
+</Link>
 
-              <Link to="/contribute" className="menu-item">
-          <FaCamera className="icon" /> Contribute
-        </Link>
           <hr />
           <a href="#" className="menu-item">
             <FaCog className="icon" /> Settings

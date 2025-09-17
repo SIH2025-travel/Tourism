@@ -1,5 +1,8 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa"; // For Read More
+import { FaPlaneDeparture } from "react-icons/fa"; // For Book Trip
 import "./HomePage.css";
 
 import Navbar from "./components/Navbar";
@@ -26,6 +29,7 @@ export default function HomePage() {
   const [displayIndex, setDisplayIndex] = useState(0);
   const [fade, setFade] = useState(false);
   const [animatingCard, setAnimatingCard] = useState(null);
+  const [wishlist, setWishlist] = useState([]); // ✅ Wishlist state
 
   const navigate = useNavigate();
   const cardRefs = useRef([]);
@@ -50,7 +54,7 @@ export default function HomePage() {
     const cardElement = cardRefs.current[idx];
     if (cardElement) {
       const rect = cardElement.getBoundingClientRect();
-      navigate(`/home/place/${places[idx].id}`, { state: { rect } });
+      navigate(`/home/place/${places[idx].id}`);
     }
   };
 
@@ -59,6 +63,13 @@ export default function HomePage() {
     if (container) {
       container.scrollBy({ left: scrollOffset, behavior: "smooth" });
     }
+  };
+
+  // ✅ Wishlist toggle
+  const toggleWishlist = (id) => {
+    setWishlist((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
   };
 
   return (
@@ -72,13 +83,21 @@ export default function HomePage() {
         <div className="home-body">
           <Sidebar />
           <main className="home-content">
-            <div className={`homepage-left ${fade ? "fade-out" : "fade-in"}`}>
-              <h2>{places[displayIndex].subtitle}</h2>
-              <h1>{places[displayIndex].title}</h1>
-              <p>{places[displayIndex].description}</p>
-              <button className="read-more-btn" onClick={() => handleReadMore(displayIndex)}>Read More</button>
-              <button className="explore-btn">{places[displayIndex].buttonText}</button>
-            </div>
+           <div className="homepage-left">
+  <h2>{places[displayIndex].subtitle}</h2>
+  <h1>{places[displayIndex].title}</h1>
+  <p>{places[displayIndex].description}</p>
+
+  <div className="button-group">
+    <button className="read-more-btn" onClick={() => handleReadMore(displayIndex)}>
+      Read More
+    </button>
+    <button className="explore-btn">
+      {places[displayIndex].buttonText}
+    </button>
+  </div>
+</div>
+
             <div className="homepage-cards">
               {reorderedPlaces.map((place, idx) => {
                 const isAnimating = animatingCard === places.indexOf(place);
@@ -111,25 +130,35 @@ export default function HomePage() {
         <div className="booking-carousel">
           <button className="carousel-btn left" onClick={() => scrollBooking(-300)}>‹</button>
           <div className="booking-cards" id="booking-cards">
-            <div className="booking-card">
-              <img src={sittongImg} alt="Sittong Tour" />
-              <h3>Sittong Adventure</h3>
-              <p>3 Days / 2 Nights - Explore orange orchards and nature trails.</p>
-              <button className="book-now-btn">Book Now</button>
-            </div>
-            <div className="booking-card">
-              <img src={lepchajagatImg} alt="Lepchajagat Tour" />
-              <h3>Lepchajagat Escape</h3>
-              <p>2 Days / 1 Night - Serene pine forests and Kanchenjunga views.</p>
-              <button className="book-now-btn">Book Now</button>
-            </div>
-            <div className="booking-card">
-              <img src={tinchuleyImg} alt="Tinchuley Tour" />
-              <h3>Tinchuley Retreat</h3>
-              <p>4 Days / 3 Nights - Tea gardens, riverside walks, and sunrise points.</p>
-              <button className="book-now-btn">Book Now</button>
-            </div>
-            {/* Add more cards as needed */}
+            {[
+              { id: 1, img: sittongImg, title: "Sittong Adventure", desc: "3 Days / 2 Nights - Explore orange orchards and nature trails." },
+              { id: 2, img: lepchajagatImg, title: "Lepchajagat Escape", desc: "2 Days / 1 Night - Serene pine forests and Kanchenjunga views." },
+              { id: 3, img: tinchuleyImg, title: "Tinchuley Retreat", desc: "4 Days / 3 Nights - Tea gardens, riverside walks, and sunrise points." },
+            ].map((tour) => (
+              <div key={tour.id} className="booking-card">
+                <div className="image-container">
+                  <img src={tour.img} alt={tour.title} />
+                  <button
+                    className="wishlist-btn"
+                    onClick={() => toggleWishlist(tour.id)}
+                  >
+                    {wishlist.includes(tour.id) ? (
+                      <FaHeart color="#ff6b35" size={24} />
+                    ) : (
+                      <FaRegHeart color="#fff" size={24} />
+                    )}
+                  </button>
+                </div>
+                <h3>{tour.title}</h3>
+                <p>{tour.desc}</p>
+                <button
+                  className="book-now-btn"
+                  onClick={() => alert(`Booking for ${tour.title} clicked`)}
+                >
+                  Book Now
+                </button>
+              </div>
+            ))}
           </div>
           <button className="carousel-btn right" onClick={() => scrollBooking(300)}>›</button>
         </div>

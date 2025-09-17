@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Home/components/Navbar";
+import { FaCamera } from "react-icons/fa";
 import "./ContributionPage.css";
 
 export default function ContributionPage() {
@@ -53,64 +54,81 @@ export default function ContributionPage() {
     <div className="contribution-page">
       <Navbar />
 
-      {/* ✅ Floating Back to Home Button */}
+      {/* Floating Back to Home Button */}
       <button className="back-home-btn" onClick={handleBackHome}>
         ← Back to Home
       </button>
 
-      {/* ✅ Page Heading (outside the form) */}
+      {/* Page Heading */}
       <h1 className="page-heading">✈️ Contribute a New Place</h1>
 
       <div className="contribution-container">
         <form className="contribution-form" onSubmit={handleSubmit}>
-          <h1>Contribution Form</h1> {/* ✅ Small title inside form */}
+          {/* Left Side: Image Upload */}
+          <div className="image-upload-section">
+            <label className="image-upload-label">
+              <FaCamera size={50} color="#ff6b35" />
+              <span style={{ marginTop: "10px" }}>
+                Click to upload image
+              </span>
+              <input
+                type="file"
+                name="image"
+                accept="image/*"
+                onChange={handleChange}
+                style={{ display: "none" }}
+              />
+            </label>
 
-          <label>Place Name</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            placeholder="Enter place name"
-          />
+            {formData.imagePreview && (
+              <div className="image-preview">
+                <img src={formData.imagePreview} alt="Preview" />
+              </div>
+            )}
+          </div>
 
-          <label>Location</label>
-          <input
-            type="text"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-            required
-            placeholder="Enter location"
-          />
+          {/* Right Side: Input Fields */}
+          <div className="input-fields">
 
-          <label>Description</label>
-          <textarea
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            required
-            placeholder="Write a short description..."
-          ></textarea>
+            <label>
+              Place Name
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                placeholder="Enter place name"
+              />
+            </label>
 
-          <label>Upload Image</label>
-          <input
-            type="file"
-            name="image"
-            accept="image/*"
-            onChange={handleChange}
-          />
+            <label>
+              Location
+              <input
+                type="text"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+                required
+                placeholder="Enter location"
+              />
+            </label>
 
-          {formData.imagePreview && (
-            <div className="image-preview">
-              <img src={formData.imagePreview} alt="Preview" />
-            </div>
-          )}
+            <label>
+              Description
+              <textarea
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+                required
+                placeholder="Write a short description..."
+              ></textarea>
+            </label>
 
-          <button type="submit" className="submit-btn">
-            Submit Contribution
-          </button>
+            <button type="submit" className="submit-btn">
+              Submit Contribution
+            </button>
+          </div>
         </form>
       </div>
     </div>
