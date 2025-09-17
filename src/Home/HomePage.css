@@ -145,6 +145,7 @@
 .card:hover {
   transform: scale(1.1);
 }
+<<<<<<< HEAD
 
 /* ------------------
    Active animation
@@ -201,3 +202,11 @@
   line-height: 1.6;
   color: #eee;
 }
+=======
+.chatbot {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+}
+>>>>>>> feature/Ranit
