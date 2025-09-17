@@ -36,6 +36,9 @@ function App() {
             }
           />
 
+          <Route path="/guest-home" element={<HomePage />} />
+
+
           {/* Place details and sub-pages */}
           <Route
             path="/home/place/:id"

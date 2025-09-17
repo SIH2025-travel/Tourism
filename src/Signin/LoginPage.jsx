@@ -88,9 +88,10 @@ function LoginPage() {
           Don’t have an account? <Link to="/signup">Sign up</Link>
         </p>
 
-        <button className="guest-btn" onClick={() => navigate('/home')}>
+       <button className="guest-btn" onClick={() => navigate('/guest-home')}>
           Continue as Guest
         </button>
+
       </div>
     </div>
   );
