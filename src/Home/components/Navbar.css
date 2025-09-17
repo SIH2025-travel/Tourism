@@ -14,6 +14,11 @@
   height: 60px; /* fixed height so sidebar toggle won’t overlap */
 }
 
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 50px; /* adjust the value as needed */
+}
 /* Left section (logo + sidebar toggle if needed) */
 .navbar-left {
   display: flex;

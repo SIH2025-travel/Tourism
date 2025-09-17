@@ -13,10 +13,26 @@ import {
   FaCamera
 } from "react-icons/fa";
 import "./Sidebar.css";
+
+import { useAuth } from "../../Auth/AuthProvider";
+import { useNavigate } from "react-router-dom";
+
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false); // default closed
+  const [isOpen, setIsOpen] = useState(true);
+  const { signOut, user } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    const ok = await signOut();
+    if (ok) {
+      setIsOpen(false);
+      navigate('/');
+    } else {
+      alert('Logout failed. Try again.');
+    }
+  };
 
   return (
     <>
@@ -33,7 +49,7 @@ const Sidebar = () => {
         {/* Profile Section */}
         <div className="profile-section">
           <FaUserCircle className="profile-pic" />
-          <h3 className="user-name">User Name</h3>
+          <h3 className="user-name">{user?.user_metadata?.full_name || user?.email || 'User Name'}</h3>
           <button className="edit-btn">
             <FaPen className="icon" /> Edit Profile
           </button>
@@ -62,9 +78,9 @@ const Sidebar = () => {
           <a href="#" className="menu-item">
             <FaQuestionCircle className="icon" /> Help & Support
           </a>
-          <a href="/" className="menu-item logout">
+          <button type="button" className="menu-item logout" onClick={handleLogout}>
             <FaSignOutAlt className="icon" /> Logout
-          </a>
+          </button>
         </nav>
       </aside>
     </>

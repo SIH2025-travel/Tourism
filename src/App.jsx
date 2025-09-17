@@ -27,7 +27,76 @@ function App() {
           <Route path="/" element={<LandingPage />} />
 
           {/* Home Page */}
-          <Route path="/home" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
+          <Route
+            path="/home"
+            element={
+              <ProtectedRoute>
+                <HomePage />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Place details and sub-pages */}
+          <Route
+            path="/home/place/:id"
+            element={
+              <ProtectedRoute>
+                <PlaceDetail />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/home/place/:id/sightseeing"
+            element={
+              <ProtectedRoute>
+                <SightseeingPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/home/place/:id/foods"
+            element={
+              <ProtectedRoute>
+                <FoodsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/home/place/:id/hotels"
+            element={
+              <ProtectedRoute>
+                <HotelsPage />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Contribute page */}
+          <Route
+            path="/contribute"
+            element={
+              <ProtectedRoute>
+                <ContributionPage />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Planner routes */}
+          <Route
+            path="/planner"
+            element={
+              <ProtectedRoute>
+                <Planner />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/planner/results"
+            element={
+              <ProtectedRoute>
+                <PlannerResults />
+              </ProtectedRoute>
+            }
+          />
 
           {/* Login (Signin) Page */}
           <Route path="/login" element={<Signin />} />

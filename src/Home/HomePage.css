@@ -37,27 +37,12 @@
 
 /* Body = Sidebar + Main content */
 /* Body = Sidebar + Main content */
+
 .home-body {
   display: flex;
   flex: 1;
   height: 100%;
   width: 100%;
-  padding-top: 70px; /* equal to navbar height */
-}
-
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 70px; /* adjust as needed */
-  background: rgba(0, 0, 0, 0.4); /* optional transparent bg */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 30px;
-  z-index: 1000; /* ensures it's always above cards/sidebar */
-  backdrop-filter: blur(6px); /* nice glass effect */
 }
 
 .home-body > .sidebar {

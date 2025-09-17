@@ -5,8 +5,8 @@ import { FaArrowRight } from "react-icons/fa"; // For Read More
 import { FaPlaneDeparture } from "react-icons/fa"; // For Book Trip
 import "./HomePage.css";
 
-import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar"; 
 import Chatbot from "../Chatbot/Chatbot";
 
 import bgImage from "../assets/HomePageBG.jpg";
@@ -148,6 +148,7 @@ const moveCarousel = (direction) => {
           </main>
           <div className="chatbot"><Chatbot /></div>
         </div>
+
       </div>
 
      <section className="booking-section">
