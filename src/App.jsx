@@ -9,7 +9,7 @@ import PlaceDetail from "./Home/PlaceDetail"; // create this file inside Home fo
 import SightseeingPage from "./Home/SightseeingPage"; 
 import FoodsPage from "./Home/FoodsPage"; 
 import HotelsPage from "./Home/HotelsPage"; 
-
+import ContributionPage from "./Contribution/ContributionPage";
 
 
 function App() {
@@ -34,6 +34,8 @@ function App() {
 
         {/* Signup Page */}
         <Route path="/signup" element={<Signup />} />
+
+        <Route path="/contribute" element={<ContributionPage />} />
 
         {/* 404 Fallback */}
         <Route

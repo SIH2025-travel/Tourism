@@ -12,6 +12,9 @@ import {
   FaTimes
 } from "react-icons/fa";
 import "./Sidebar.css";
+import { Link } from "react-router-dom";
+import { FaCamera } from "react-icons/fa";
+
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -45,6 +48,10 @@ const Sidebar = () => {
           <a href="#" className="menu-item">
             <FaHeart className="icon" /> Wishlist
           </a>
+
+              <Link to="/contribute" className="menu-item">
+          <FaCamera className="icon" /> Contribute
+        </Link>
           <hr />
           <a href="#" className="menu-item">
             <FaCog className="icon" /> Settings
