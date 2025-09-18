@@ -23,7 +23,7 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          {/* Landing Page at root */}
+          {/* Landing Page */}
           <Route path="/" element={<LandingPage />} />
 
           {/* Home Page */}
@@ -35,11 +35,9 @@ function App() {
               </ProtectedRoute>
             }
           />
-
           <Route path="/guest-home" element={<HomePage />} />
 
-
-          {/* Place details and sub-pages */}
+          {/* Place details */}
           <Route
             path="/home/place/:id"
             element={
@@ -73,7 +71,7 @@ function App() {
             }
           />
 
-          {/* Contribute page */}
+          {/* Contribute */}
           <Route
             path="/contribute"
             element={
@@ -83,7 +81,7 @@ function App() {
             }
           />
 
-          {/* Planner routes */}
+          {/* Planner */}
           <Route
             path="/planner"
             element={
@@ -101,26 +99,11 @@ function App() {
             }
           />
 
-          {/* Login (Signin) Page */}
+          {/* Auth */}
           <Route path="/login" element={<Signin />} />
-
-          {/* Signup Page */}
           <Route path="/signup" element={<Signup />} />
 
-          <Route path="/home/place/:id" element={<PlaceDetail />} />
-
-           {/* Contribution Page */}
-           <Route path="/contribution" element={<ProtectedRoute><ContributionPage /></ProtectedRoute>} />
-
-          <Route path="/home/place/:id/sightseeing" element={<SightseeingPage />} />
-          <Route path="/home/place/:id/foods" element={<FoodsPage />} />
-          <Route path="/home/place/:id/hotels" element={<HotelsPage />} />
-
-          {/* Planner routes */}
-          <Route path="/planner" element={<ProtectedRoute><Planner /></ProtectedRoute>} />
-          <Route path="/planner/results" element={<ProtectedRoute><PlannerResults /></ProtectedRoute>} />
-
-          {/* 404 Fallback */}
+          {/* 404 */}
           <Route
             path="*"
             element={
