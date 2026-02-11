@@ -18,7 +18,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-chatmodel = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.2, max_output_tokens=300)
+chatmodel = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0.2, max_output_tokens=300)
 
 chat_history = [
     SystemMessage(content="You are a helpful travel assistant for North Bengal tourism."),
