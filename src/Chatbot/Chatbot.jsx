@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Chatbot.css";
 import { FaCommentDots, FaTimes } from "react-icons/fa";
+import ReactMarkdown from "react-markdown";
+
 
 function Chatbot() {
   const [messages, setMessages] = useState([]);
@@ -51,16 +53,23 @@ function Chatbot() {
             </button>
           </div>
 
-          <div className="chatbox-messages">
-            {messages.map((msg, idx) => (
-              <div
-                key={idx}
-                className={msg.sender === "user" ? "user-message" : "bot-message"}
-              >
-                {msg.text}
-              </div>
-            ))}
-          </div>
+          
+            <div className="chatbox-messages">
+              {messages.map((msg, idx) => (
+                <div
+                  key={idx}
+                  className={msg.sender === "user" ? "user-message" : "bot-message"}
+                >
+                  {msg.sender === "ai" ? (
+                    <ReactMarkdown>{msg.text}</ReactMarkdown>
+                  ) : (
+                    msg.text
+                  )}
+                </div>
+              ))}
+            </div>
+
+         
 
           <div className="chatbox-input">
             <input
