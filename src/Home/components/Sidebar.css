@@ -1,0 +1,203 @@
+/* Sidebar container */
+.sidebar {
+  position: fixed;
+  top: 60px;   /* 👈 Push below navbar */
+  left: 0;
+  width: 250px;
+  height: calc(100% - 60px); /* 👈 Fill the rest of the screen below navbar */
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  z-index: 999; /* stays above content but below navbar */
+  overflow-y: auto;
+}
+
+/* When sidebar is closed */
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+/* Profile Section */
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-pic {
+  font-size: 70px;
+  color: #9ca3af;
+  margin-bottom: 10px;
+}
+
+.user-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin: 8px 0;
+}
+
+.edit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #a1acbc;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  color: #24334d;
+  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.edit-btn:hover {
+  background: #f3f4f6;
+  transform: translateY(-1px);
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #374151;
+  border-radius: 6px;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.menu-item:hover {
+  background: #f3f4f6;
+  color: #111827;
+  transform: translateX(4px);
+}
+
+.menu-item .icon {
+  font-size: 18px;
+  color: #6b7280;
+  transition: color 0.2s ease-in-out;
+}
+
+.menu-item:hover .icon {
+  color: #111827;
+}
+
+.menu-item.logout {
+  color: #dc2626;
+}
+
+.menu-item.logout:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Divider */
+hr {
+  margin: 15px 0;
+  border: 0.5px solid #e5e7eb;
+}
+
+/* Toggle Button */
+/* Toggle Button */
+.toggle-btn {
+  position: fixed;
+  top: 65px;       /* 👈 below navbar (adjust if your navbar height differs) */
+  left: 15px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;   /* ensure above sidebar */
+  color: #333;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 60px;       /* 👈 sidebar starts below navbar */
+  left: 0;
+  width: 250px;
+  height: calc(100% - 60px);
+  background: #fff;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+/* Profile & Menu styling (your existing design remains) */
+.profile-section {
+  text-align: center;
+  padding: 20px;
+}
+
+.profile-pic {
+  font-size: 60px;
+  color: #555;
+}
+
+.user-name {
+  margin: 10px 0;
+}
+
+.edit-btn {
+  background: #eee;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.menu-item:hover {
+  background: #f5f5f5;
+}
+
+.menu-item .icon {
+  margin-right: 10px;
+}
+
+.logout {
+  color: #d9534f;
+}

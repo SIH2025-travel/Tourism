@@ -1,0 +1,171 @@
+/* Full page background */
+.contribution-page {
+  display: flex;
+  flex-direction: column; 
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  background: url("../assets/HomePageBG.jpg") no-repeat center center/cover;
+  padding: 40px 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Back to home button */
+.back-home-btn {
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  padding: 10px 16px;
+  background-color: #ff6b35;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-home-btn:hover {
+  background-color: #e85a2a;
+  transform: translateY(-2px);
+}
+
+/* Page Heading */
+.page-heading {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin: 100px 0 30px;
+  color: #1f2937;
+}
+
+/* Form container (translucent box) */
+.contribution-form {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 40px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 900px; /* wider to allow side-by-side layout */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  color: #111;
+  display: flex;
+  gap: 30px; /* space between image & fields */
+  flex-wrap: wrap; /* responsive */
+}
+
+/* Left side: Image Upload */
+.image-upload-section {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.image-upload-label {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  border: 2px dashed #d1d5db;
+  border-radius: 10px;
+  transition: border-color 0.3s;
+}
+
+.image-upload-label:hover {
+  border-color: #ff6b35;
+}
+
+.image-preview img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 15px;
+  border: 1px solid #d1d5db;
+}
+
+/* Right side: Inputs */
+.input-fields {
+  flex: 2;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contribution-form h1 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #111827;
+}
+
+.contribution-form label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #111827;
+  display: flex;
+  flex-direction: column;
+}
+
+.contribution-form input,
+.contribution-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  background: #fff;
+  color: #111;
+  transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.contribution-form input:hover,
+.contribution-form textarea:hover {
+  border-color: #ff9c65;
+}
+
+.contribution-form input:focus,
+.contribution-form textarea:focus {
+  border-color: #ff6b35;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 107, 53, 0.3);
+}
+
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: #ff6b35;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.submit-btn:hover {
+  background: #e85a2a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contribution-form {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .image-upload-section, .input-fields {
+    width: 100%;
+  }
+}
